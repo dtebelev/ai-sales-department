@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Письмо клиента: ответы на вопросы</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F4EFE3;
+    --card:#FBF7EC;
+    --ink:#1F1B16;
+    --ink-soft:#5A4F44;
+    --line:rgba(38,28,20,.12);
+    --green:#3F7A4B;
+    --wine:#972E2E;
+    --blue:#2F5FA8;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Raleway',sans-serif;
+    font-size:16px;
+    line-height:1.55;
+    display:flex;
+    justify-content:center;
+    padding:40px 16px;
+  }
+  .sheet{
+    width:100%;
+    max-width:780px;
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:14px;
+    box-shadow:0 18px 40px rgba(38,28,20,.08);
+    overflow:hidden;
+  }
+  .mail-head{
+    padding:28px 36px 20px;
+    border-bottom:2px solid var(--line);
+  }
+  .mail-head .brand{
+    font-family:'JetBrains Mono',monospace;
+    font-size:13px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin-bottom:18px;
+  }
+  .field-row{
+    display:flex;
+    gap:10px;
+    padding:6px 0;
+    font-size:16px;
+    border-bottom:1px dashed var(--line);
+  }
+  .field-row:last-child{border-bottom:none;}
+  .field-label{
+    width:110px;
+    flex:none;
+    color:var(--ink-soft);
+    font-family:'JetBrains Mono',monospace;
+    font-size:13px;
+    letter-spacing:.04em;
+    text-transform:uppercase;
+    padding-top:2px;
+  }
+  .field-value{font-weight:500;}
+  .field-value.subject{font-weight:700;font-size:18px;}
+  .mail-body{padding:30px 36px 10px;}
+  .mail-body p{margin:0 0 18px;}
+  .greeting{font-weight:600;}
+  .qa-block{
+    background:rgba(38,28,20,.04);
+    border:1px solid var(--line);
+    border-left:4px solid var(--blue);
+    border-radius:8px;
+    padding:16px 20px;
+    margin:0 0 16px;
+  }
+  .qa-block .q{
+    font-family:'JetBrains Mono',monospace;
+    font-size:13px;
+    text-transform:uppercase;
+    letter-spacing:.03em;
+    color:var(--ink-soft);
+    margin-bottom:6px;
+  }
+  .qa-block .a{
+    font-size:17px;
+    font-weight:600;
+  }
+  .attach-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-family:'JetBrains Mono',monospace;
+    font-size:13px;
+    color:var(--ink-soft);
+    background:rgba(47,95,168,.08);
+    border:1px solid rgba(47,95,168,.25);
+    border-radius:8px;
+    padding:8px 14px;
+    margin:6px 0 24px;
+  }
+  .attach-badge .clip{font-size:15px;}
+  .signature{
+    padding:22px 36px 34px;
+    border-top:1px solid var(--line);
+    margin-top:10px;
+  }
+  .signature .name{font-weight:700;font-size:17px;}
+  .signature .role{color:var(--ink-soft);font-size:15px;margin-top:2px;}
+  .signature .contacts{
+    margin-top:10px;
+    font-family:'JetBrains Mono',monospace;
+    font-size:15px;
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+  }
+  .signature .company{
+    margin-top:14px;
+    font-size:14px;
+    color:var(--ink-soft);
+    border-top:1px dashed var(--line);
+    padding-top:14px;
+  }
+  strong{font-weight:700;}
+
+  @media print{
+    body{background:#fff;padding:0;display:block;}
+    .sheet{max-width:780px;width:780px;margin:0 auto;box-shadow:none;border:none;}
+  }
+</style>
+</head>
+<body>
+  <div class="sheet">
+    <div class="mail-head">
+      <div class="brand">Входящее письмо · ответы на уточняющие вопросы</div>
+      <div class="field-row">
+        <div class="field-label">От кого</div>
+        <div class="field-value">Марина Соколова &lt;m.sokolova@alterra-development.ru&gt;</div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">Кому</div>
+        <div class="field-value">info@vash-standbuilder.ru</div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">Дата</div>
+        <div class="field-value">25 сентября 2026, 16:05</div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">Тема</div>
+        <div class="field-value subject">Re: Стенд на выставку в Крокус Экспо, 12–15 марта</div>
+      </div>
+    </div>
+
+    <div class="mail-body">
+      <p class="greeting">Добрый день!</p>
+
+      <p>Спасибо за вопросы, честно, не думали, что часть этого важна на старте, поэтому отвечаю подробно ниже.</p>
+
+      <div class="qa-block">
+        <div class="q">Высота павильона</div>
+        <div class="a">6 метров. Прошу прощения, что не указала это сразу в первом письме, план организатора прикладываю к этому письму.</div>
+      </div>
+
+      <div class="attach-badge"><span class="clip">📎</span> План места от организатора.pdf</div>
+
+      <div class="qa-block">
+        <div class="q">Площадь стенда</div>
+        <div class="a">Подтверждаю: 120 м² по плану организатора, стенд D:214.</div>
+      </div>
+
+      <div class="qa-block">
+        <div class="q">Даты монтажа и демонтажа</div>
+        <div class="a">Подтверждаю без изменений: монтаж с 9 по 11 марта 2027, демонтаж 15–16 марта 2027.</div>
+      </div>
+
+      <div class="qa-block">
+        <div class="q">Второй этаж</div>
+        <div class="a">Не нужен, решили обойтись без него. Одноуровневый стенд по брифу, который отправляли раньше.</div>
+      </div>
+
+      <div class="qa-block">
+        <div class="q">Бюджет</div>
+        <div class="a">Остаётся прежним: до 5 000 000 рублей.</div>
+      </div>
+
+      <p>Если по плану организатора появятся ещё вопросы, пишите, пожалуйста, сразу, чтобы не терять время. Хотим успеть согласовать всё до конца этой недели.</p>
+
+      <p>Спасибо за внимательность к деталям!</p>
+    </div>
+
+    <div class="signature">
+      <div class="name">Марина Соколова</div>
+      <div class="role">Руководитель отдела маркетинга, ООО «Альтерра Девелопмент»</div>
+      <div class="contacts">
+        <span>+7 495 000-00-00</span>
+        <span>m.sokolova@alterra-development.ru</span>
+      </div>
+      <div class="company">ООО «Альтерра Девелопмент» · Москва · alterra-development.ru</div>
+    </div>
+  </div>
+</body>
+</html>

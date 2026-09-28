@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Маркетинг: итоги 2025 года</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --surface:#FCFCFB; --panel:#FFFFFF; --line:#DFDFDA; --line-soft:#ECECE7;
+  --ink:#1B1B19; --ink-2:#4A4A46; --ink-3:#7B7B74;
+  --s1:#2563EB; --s2:#D97706;
+  --bad:#B42318; --ok:#067647;
+  --head:#F4F4F0;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--surface);color:var(--ink);
+  font:14px/1.55 Raleway,-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif;
+  -webkit-font-smoothing:antialiased}
+.num,.kpi .v,td.n,th.n,.calc{font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace}
+.doc{max-width:1120px;margin:0 auto;padding:0 28px 80px}
+@media(max-width:700px){.doc{padding:0 16px 60px}}
+
+.top{border-bottom:2px solid var(--ink);padding:22px 0 14px;margin-bottom:26px;
+  display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap}
+.org{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);font-weight:700}
+.title{font-size:27px;font-weight:700;letter-spacing:-.02em;margin:6px 0 0}
+.sub{color:var(--ink-2);margin-top:4px;font-size:13.5px}
+.stamp{font-size:11.5px;color:var(--ink-3);text-align:right;line-height:1.7}
+.stamp b{color:var(--ink-2)}
+
+h2{font-size:15px;font-weight:700;letter-spacing:.02em;margin:38px 0 12px;
+  padding-bottom:7px;border-bottom:1px solid var(--line)}
+h2 span{color:var(--ink-3);font-weight:600;font-size:12px;margin-left:8px}
+p{margin:0 0 12px;max-width:88ch;color:var(--ink-2)}
+
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+@media(max-width:820px){.kpis{grid-template-columns:repeat(2,1fr)}}
+.kpi{background:var(--panel);padding:14px 16px}
+.kpi .k{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);font-weight:600;font-family:Raleway}
+.kpi .v{white-space:nowrap;font-size:24px;font-weight:700;margin-top:6px;letter-spacing:-.02em;
+  font-variant-numeric:tabular-nums}
+.kpi .d{font-size:12px;color:var(--ink-3);margin-top:3px;font-family:Raleway}
+.kpi .v.ok{color:var(--ok)}
+.kpi .v.bad{color:var(--bad)}
+
+.panel{background:var(--panel);border:1px solid var(--line);padding:16px 18px 10px;margin:14px 0}
+.ptitle{font-size:13.5px;font-weight:700;margin-bottom:2px}
+.pnote{font-size:12px;color:var(--ink-3);margin-bottom:12px}
+.legend{display:flex;gap:16px;flex-wrap:wrap;margin:0 0 10px;font-size:12.5px;color:var(--ink-2)}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+
+table{border-collapse:collapse;width:100%;font-size:13px;background:var(--panel);
+  border:1px solid var(--line);margin:12px 0}
+th,td{padding:8px 12px;text-align:left;border-bottom:1px solid var(--line-soft);font-family:Raleway}
+th{background:var(--head);font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;
+  color:var(--ink-2);font-weight:700}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+tr:last-child td{border-bottom:0}
+tfoot td{font-weight:700;background:var(--head);border-top:1px solid var(--line)}
+.flag{color:var(--bad);font-weight:600}
+.hi{color:var(--ok);font-weight:600}
+
+.callout{border:1px solid var(--line);border-left:3px solid var(--s2);background:var(--panel);
+  padding:13px 16px;margin:16px 0}
+.callout.red{border-left-color:var(--bad)}
+.callout h4{margin:0 0 6px;font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-2)}
+.callout p{margin:0;color:var(--ink)}
+ol.list,ul.list{margin:0;padding-left:20px;color:var(--ink)}
+ol.list li,ul.list li{margin:0 0 9px;padding-left:2px}
+ol.list li:last-child,ul.list li:last-child{margin-bottom:0}
+li.hook{color:var(--bad)}
+
+.foot{margin-top:40px;padding-top:14px;border-top:1px solid var(--line);
+  font-size:11.5px;color:var(--ink-3)}
+svg{display:block;width:100%;height:auto;overflow:visible}
+.tip{position:fixed;pointer-events:none;background:#1B1B19;color:#fff;font-size:12px;
+  font-family:"JetBrains Mono",monospace;
+  padding:6px 9px;border-radius:4px;opacity:0;transition:opacity .1s;z-index:9;white-space:nowrap}
+</style>
+</head>
+<body>
+<div class="doc">
+
+<div class="top">
+  <div>
+    <div class="org">СТЕНД-ПРО · производство выставочных стендов</div>
+    <h1 class="title">Маркетинг: итоги 2025 года</h1>
+    <div class="sub">Трафик, заявки на расчёт, стоимость привлечения, каналы</div>
+  </div>
+  <div class="stamp">
+    Период: <b>01.01.2025 – 31.12.2025</b><br>
+    Источники: Яндекс.Метрика, Яндекс.Директ, CRM<br>
+    Подготовлен: <b>14.01.2026</b> · внутренний документ
+  </div>
+</div>
+
+<h2>Ключевые показатели <span>год</span></h2>
+<div class="kpis">
+  <div class="kpi"><div class="k">Визитов на сайт</div><div class="v">8 020</div><div class="d">за год</div></div>
+  <div class="kpi"><div class="k">Обращения</div><div class="v">1 240</div><div class="d">15,5% конверсия из визитов</div></div>
+  <div class="kpi"><div class="k">Стоимость обращения</div><div class="v ok">3 306 ₽</div><div class="d">в среднем за год</div></div>
+  <div class="kpi"><div class="k">Заявок на расчёт</div><div class="v">247</div><div class="d">19,9% конверсия из обращений</div></div>
+  <div class="kpi"><div class="k">Стоимость заявки</div><div class="v ok">16 600 ₽</div><div class="d">в среднем за год</div></div>
+  <div class="kpi"><div class="k">Бюджет на маркетинг</div><div class="v">4 100 000 ₽</div><div class="d">Директ, SEO, сайт, каталоги</div></div>
+  <div class="kpi"><div class="k">ДРР</div><div class="v ok">2,3%</div><div class="d">реклама / выручка</div></div>
+  <div class="kpi"><div class="k">Договоров подписано</div><div class="v">61</div><div class="d">конверсия из заявки 24,7%</div></div>
+</div>
+<p>Воронка года: визит → обращение (15,5% от визитов) → заявка на расчёт (19,9% от обращений) → договор (24,7% от заявок). В целом обращение доходит до договора в 4,9% случаев.</p>
+
+<h2>Визиты, обращения и заявки по месяцам</h2>
+<div class="panel">
+  <div class="ptitle">Визиты на сайт по месяцам</div>
+  <div class="pnote">Уникальные визиты сайта, шт. Сезонные пики: февраль–апрель и сентябрь–ноябрь.</div>
+  <svg id="c1a" viewBox="0 0 900 260" role="img" aria-label="Визиты на сайт по месяцам 2025"></svg>
+</div>
+<div class="panel">
+  <div class="ptitle">Обращения и заявки на расчёт по месяцам</div>
+  <div class="pnote">Обращение: любой входящий контакт (звонок, форма, письмо, мессенджер). Заявка на расчёт: обращение, по которому уже известны параметры стенда.</div>
+  <div class="legend">
+    <span><i style="background:#D97706"></i>Обращения</span>
+    <span><i style="background:#2563EB"></i>Заявки на расчёт</span>
+  </div>
+  <svg id="c1b" viewBox="0 0 900 260" role="img" aria-label="Обращения и заявки на расчёт по месяцам 2025"></svg>
+</div>
+
+<h2>Стоимость заявки по месяцам</h2>
+<div class="panel">
+  <div class="ptitle">Средняя стоимость заявки на расчёт, ₽</div>
+  <div class="pnote">Бюджет месяца делённый на число заявок месяца. Устойчивое снижение с начала года.</div>
+  <svg id="c2" viewBox="0 0 900 260" role="img" aria-label="Стоимость заявки по месяцам"></svg>
+</div>
+
+<h2>Каналы</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Источник</th>
+      <th class="n">Бюджет, ₽</th>
+      <th class="n">Обращений</th>
+      <th class="n">Заявок</th>
+      <th class="n">Стоимость обращения, ₽</th>
+      <th class="n">Стоимость заявки, ₽</th>
+      <th class="n">Договоров</th>
+      <th class="n">Конверсия</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>Яндекс.Директ</td><td class="n">2 700 000</td><td class="n">700</td><td class="n">120</td><td class="n">3 857</td><td class="n">22 500</td><td class="n">30</td><td class="n">25,0%</td></tr>
+    <tr><td>SEO</td><td class="n">900 000</td><td class="n">300</td><td class="n">62</td><td class="n">3 000</td><td class="n">14 516</td><td class="n">14</td><td class="n">22,6%</td></tr>
+    <tr><td>Выставочные каталоги и справочники</td><td class="n">500 000</td><td class="n">140</td><td class="n">25</td><td class="n">3 571</td><td class="n">20 000</td><td class="n">4</td><td class="n">16,0%</td></tr>
+    <tr><td>Рекомендации</td><td class="n">0</td><td class="n">60</td><td class="n">24</td><td class="n">-</td><td class="n">-</td><td class="n">9</td><td class="n hi">37,5%</td></tr>
+    <tr><td>Повторные клиенты</td><td class="n">0</td><td class="n">40</td><td class="n">16</td><td class="n">-</td><td class="n">-</td><td class="n">4</td><td class="n">25,0%</td></tr>
+  </tbody>
+  <tfoot>
+    <tr><td>Итого</td><td class="n">4 100 000</td><td class="n">1 240</td><td class="n">247</td><td class="n">3 306</td><td class="n">16 600</td><td class="n">61</td><td class="n">24,7%</td></tr>
+  </tfoot>
+</table>
+<p>Платные каналы (Директ, SEO, каталоги) дают основной объём обращений и заявок. Рекомендации дают заметно более высокую конверсию в договор (37,5% против 24,7% в среднем), повторные клиенты конвертируются на уровне общего показателя.</p>
+
+<h2>Динамика по кварталам</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Квартал</th>
+      <th class="n">Заявок</th>
+      <th class="n">Стоимость заявки, ₽</th>
+      <th class="n">Договоров</th>
+      <th class="n">Конверсия в договор</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>1 кв. (янв–мар)</td><td class="n">66</td><td class="n">19 257</td><td class="n">21</td><td class="n">31,8%</td></tr>
+    <tr><td>2 кв. (апр–июн)</td><td class="n">56</td><td class="n">17 341</td><td class="n">15</td><td class="n">26,8%</td></tr>
+    <tr><td>3 кв. (июл–сен)</td><td class="n">50</td><td class="n">15 870</td><td class="n">11</td><td class="n">22,0%</td></tr>
+    <tr><td>4 кв. (окт–дек)</td><td class="n">75</td><td class="n">14 192</td><td class="n">14</td><td class="n flag">18,7%</td></tr>
+  </tbody>
+  <tfoot>
+    <tr><td>Итого</td><td class="n">247</td><td class="n">16 600</td><td class="n">61</td><td class="n">24,7%</td></tr>
+  </tfoot>
+</table>
+
+<h2>Выводы</h2>
+<div class="callout">
+  <ol class="list">
+    <li>Реклама эффективна: 247 заявок за год при бюджете 4,1 млн ₽ и ДРР 2,3%: доля рекламных расходов от выручки минимальна за последние периоды.</li>
+    <li>Стоимость заявки стабильно снижается: с 21 000 ₽ в январе до 13 500 ₽ в декабре, за счёт оптимизации кампаний в Директе и роста доли SEO, рекомендаций и повторных обращений в общем потоке.</li>
+    <li>Сезонность подтверждена трафиком: пики февраль–апрель и сентябрь–ноябрь дают основную часть заявок года. Предлагаю увеличить бюджет на контекстную рекламу на 30% в эти месяцы.</li>
+    <li>Стоимость обращения: 3 306 ₽ при среднем чеке 2,9 млн ₽. Это вдвое лучше отраслевого ориентира по B2B-строительству, где обращение обычно обходится дороже. Результат отдела маркетинга за год считаю одним из лучших за всё время работы.</li>
+  </ol>
+</div>
+
+<h2>Что дальше</h2>
+<div class="callout red">
+  <ol class="list">
+    <li>Увеличить бюджет на Яндекс.Директ на 30% в сезонные месяцы (февраль–апрель, сентябрь–ноябрь): при текущей стоимости заявки это даёт около 35–40 дополнительных заявок за сезон.</li>
+    <li>Продолжить наращивать долю SEO, рекомендаций и повторных обращений: самые дешёвые и лучше всего конвертирующиеся источники.</li>
+    <li>Обновить макеты и подборку выставочных каталогов и справочников к осеннему циклу выставок, конверсия по этому источнику стабильна.</li>
+    <li class="hook">Конверсия из заявки в договор падает третий квартал подряд: с 31,8% в 1 квартале до 18,7% в 4-м. Причины на стороне отдела продаж, нужен отдельный разбор.</li>
+  </ol>
+</div>
+
+<div class="foot">
+  Документ подготовлен для внутреннего обсуждения на основе выгрузок Яндекс.Метрики, Яндекс.Директа и CRM.
+  Стоимость обращения считается как бюджет периода делённый на число обращений периода. Стоимость заявки на
+  расчёт считается как бюджет периода делённый на число заявок периода. ДРР: отношение бюджета
+  на маркетинг к выручке по подписанным договорам.
+</div>
+
+</div>
+
+<div class="tip" id="tip"></div>
+<script>
+const M=["Янв","Фев","Мар","Апр","Май","Июн","Июл","Авг","Сен","Окт","Ноя","Дек"];
+const VIS=[480,780,890,820,540,470,410,440,810,860,770,750];
+const LEADS=[70,120,140,130,80,70,60,65,125,135,120,125];
+const REQ=[14,24,28,26,16,14,12,13,25,27,24,24];
+const COST=[21000,18542,19000,18000,17500,15936,16500,16000,15500,14800,14200,13500];
+const tip=document.getElementById('tip');
+function hov(el,text){
+  el.addEventListener('mousemove',e=>{tip.textContent=text;tip.style.opacity=1;
+    tip.style.left=(e.clientX+12)+'px';tip.style.top=(e.clientY-30)+'px';});
+  el.addEventListener('mouseleave',()=>{tip.style.opacity=0;});
+}
+function ru(n){return n.toLocaleString('ru-RU');}
+const NS='http://www.w3.org/2000/svg';
+function mk(t,a){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);return e;}
+function txt(p,x,y,s,o={}){const e=mk('text',Object.assign({x,y,fill:o.fill||'#7B7B74',
+  'font-size':o.size||11,'text-anchor':o.anchor||'middle','font-weight':o.w||400,
+  'font-family':'JetBrains Mono,monospace'},{}));e.textContent=s;p.appendChild(e);return e;}
+function grid(p,x0,x1,y0,y1,max,step,fmt){
+  for(let v=0;v<=max;v+=step){
+    const y=y1-(v/max)*(y1-y0);
+    p.appendChild(mk('line',{x1:x0,x2:x1,y1:y,y2:y,stroke:'#ECECE7','stroke-width':1}));
+    txt(p,x0-9,y+4,fmt?fmt(v):v,{anchor:'end'});
+  }
+}
+// 1а. визиты по месяцам, один ряд столбцов
+(function(){
+  const s=document.getElementById('c1a'),x0=50,x1=840,y0=14,y1=210,max=900,step=5;
+  grid(s,x0,x1,y0,y1,max,max/step);
+  const bw=(x1-x0)/12;
+  VIS.forEach((v,i)=>{
+    const cx=x0+bw*i+bw/2, w=22;
+    const h=(v/max)*(y1-y0);
+    const r=mk('rect',{x:cx-w/2,y:y1-h,width:w,height:h,fill:'#2563EB',rx:3,ry:3});
+    s.appendChild(r);
+    hov(r,M[i]+': '+ru(v)+' визитов');
+    txt(s,cx,y1+18,M[i]);
+  });
+})();
+// 1б. обращения и заявки на расчёт по месяцам, сгруппированные столбцы, одна шкала
+(function(){
+  const s=document.getElementById('c1b'),x0=50,x1=840,y0=14,y1=210,max=150,step=5;
+  grid(s,x0,x1,y0,y1,max,max/step);
+  const bw=(x1-x0)/12;
+  LEADS.forEach((v,i)=>{
+    const cx=x0+bw*i+bw/2, w=15;
+    const hl=(LEADS[i]/max)*(y1-y0);
+    const rl=mk('rect',{x:cx-w-1,y:y1-hl,width:w,height:hl,fill:'#D97706',rx:3,ry:3});
+    s.appendChild(rl);
+    hov(rl,M[i]+': '+LEADS[i]+' обращений');
+    const hr=(REQ[i]/max)*(y1-y0);
+    const rr=mk('rect',{x:cx+1,y:y1-hr,width:w,height:hr,fill:'#2563EB',rx:3,ry:3});
+    s.appendChild(rr);
+    hov(rr,M[i]+': '+REQ[i]+' заявок');
+    txt(s,cx,y1+18,M[i]);
+  });
+})();
+// 2. линия, стоимость заявки
+(function(){
+  const s=document.getElementById('c2'),x0=56,x1=850,y0=14,y1=210,max=24000;
+  grid(s,x0,x1,y0,y1,max,6000,v=>ru(v)+' ₽');
+  const step=(x1-x0)/11, px=i=>x0+step*i, py=v=>y1-(v/max)*(y1-y0);
+  s.appendChild(mk('path',{d:COST.map((v,i)=>(i?'L':'M')+px(i)+' '+py(v)).join(' '),
+    fill:'none',stroke:'#2563EB','stroke-width':2,'stroke-linejoin':'round'}));
+  COST.forEach((v,i)=>{
+    const c=mk('circle',{cx:px(i),cy:py(v),r:5,fill:'#2563EB',stroke:'#FFFFFF','stroke-width':2});
+    s.appendChild(c); hov(c,M[i]+': '+ru(v)+' ₽ за заявку');
+    txt(s,px(i),y1+20,M[i]);
+  });
+  txt(s,px(0)+8,py(COST[0])-14,ru(COST[0])+' ₽',{fill:'#4A4A46',size:11.5,w:700,anchor:'start'});
+  txt(s,px(11)-8,py(COST[11])-14,ru(COST[11])+' ₽',{fill:'#067647',size:11.5,w:700,anchor:'end'});
+})();
+</script>
+</body>
+</html>

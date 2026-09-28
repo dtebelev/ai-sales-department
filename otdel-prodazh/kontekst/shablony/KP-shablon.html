@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>КП Стенд-Про, шаблон</title>
+<meta name="description" content="Пустой шаблон коммерческого предложения на застройку выставочного стенда, Стенд-Про">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --accent:#B15E2E;
+    --accent-dark:#8C481F;
+    --ink:#1F1B16;
+    --ink-soft:#4A443C;
+    --line:#D9D3C8;
+    --line-soft:#EAE5DC;
+    --paper:#FFFFFF;
+    --paper-soft:#FAF8F4;
+    --ok:#3F6B4A;
+    --warn:#9C5C1E;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    font-family:'Raleway',-apple-system,'Helvetica Neue',Arial,sans-serif;
+    color:var(--ink);
+    background:#E7E2D8;
+    font-size:10.6pt;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  .mono{font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;}
+  .num{font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;white-space:nowrap;}
+  .ph{color:var(--accent-dark);background:#FBF3EC;padding:0 1mm;border-radius:2px;}
+  .page{
+    width:210mm;
+    min-height:297mm;
+    background:var(--paper);
+    margin:10mm auto;
+    padding:20mm 18mm 22mm 18mm;
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    page-break-after:always;
+    box-shadow:0 0 0 1px rgba(0,0,0,0.06), 0 6px 24px rgba(0,0,0,0.08);
+  }
+  .page:last-child{page-break-after:auto;}
+  .page-footer{
+    position:absolute;
+    left:18mm;right:18mm;bottom:9mm;
+    display:flex;justify-content:space-between;align-items:center;
+    font-size:8pt;color:#8A8478;
+    border-top:0.6pt solid var(--line);
+    padding-top:3mm;
+  }
+  .page-footer .fnum{font-family:'JetBrains Mono',monospace;}
+  h1,h2,h3,h4{font-family:'Raleway',sans-serif;margin:0 0 3mm 0;color:var(--ink);}
+  h1{font-size:20pt;font-weight:800;letter-spacing:-0.01em;}
+  h2.section-title{
+    font-size:9pt;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;
+    color:var(--accent-dark);
+    margin:0 0 2mm 0;
+    display:flex;align-items:center;gap:3mm;
+  }
+  h2.section-title::after{content:"";flex:1;height:0.6pt;background:var(--line);}
+  h3.doc-title{font-size:15pt;font-weight:700;margin:0 0 5mm 0;color:var(--ink);}
+  p{margin:0 0 2.6mm 0;}
+  b,strong{font-weight:700;color:var(--ink);}
+  ul,ol{margin:0 0 3mm 0;padding-left:5mm;}
+  li{margin-bottom:1.4mm;}
+  .lead{font-size:11.5pt;color:var(--ink-soft);}
+  .muted{color:var(--ink-soft);}
+  .accent-text{color:var(--accent-dark);font-weight:700;}
+  .tag{
+    display:inline-block;font-size:7.6pt;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;
+    padding:0.6mm 2.2mm;border-radius:2px;
+  }
+  .tag-hard{background:#F3E6DC;color:var(--accent-dark);}
+  .tag-flex{background:#EEF1EC;color:var(--ok);}
+  table{width:100%;border-collapse:collapse;font-size:9pt;}
+  table.smeta th{
+    text-align:left;font-size:7.6pt;letter-spacing:0.06em;text-transform:uppercase;
+    color:#8A8478;font-weight:700;padding:1.6mm 2mm;border-bottom:1pt solid var(--ink);
+  }
+  table.smeta td{padding:1.8mm 2mm;border-bottom:0.5pt solid var(--line-soft);vertical-align:top;}
+  table.smeta tr.subtotal td{border-top:0.8pt solid var(--ink);border-bottom:none;font-weight:700;padding-top:2.2mm;}
+  table.smeta td.num,table.smeta th.num{text-align:right;}
+  table.plain th{
+    text-align:left;font-size:7.6pt;letter-spacing:0.06em;text-transform:uppercase;color:#8A8478;
+    padding:1.6mm 2mm;border-bottom:1pt solid var(--ink);
+  }
+  table.plain td{padding:1.8mm 2mm;border-bottom:0.5pt solid var(--line-soft);vertical-align:top;}
+  .box{
+    background:var(--paper-soft);border:0.6pt solid var(--line);border-radius:3px;padding:4mm 5mm;margin:0 0 4mm 0;
+  }
+  .box.accentbox{border-color:var(--accent);background:#FBF3EC;}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:6mm;}
+  .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:5mm;}
+  .kpi{border:0.6pt solid var(--line);border-radius:3px;padding:4mm;text-align:center;}
+  .kpi .n{font-family:'JetBrains Mono',monospace;font-size:18pt;font-weight:700;color:var(--accent-dark);display:block;}
+  .kpi .l{font-size:8pt;color:var(--ink-soft);text-transform:uppercase;letter-spacing:0.06em;}
+  .logo{display:flex;align-items:center;gap:3mm;}
+  .logo .word{font-weight:800;font-size:13pt;letter-spacing:0.02em;}
+  .logo .tagline{font-size:7.4pt;color:var(--ink-soft);letter-spacing:0.12em;text-transform:uppercase;}
+  .zone-legend{display:flex;flex-wrap:wrap;gap:3mm 6mm;margin-top:3mm;}
+  .zone-legend .li{display:flex;align-items:center;gap:2mm;font-size:8.6pt;}
+  .swatch{width:9px;height:9px;border-radius:2px;display:inline-block;}
+  .cover-frame{flex:1;display:flex;flex-direction:column;justify-content:space-between;}
+  .milestone{color:var(--accent-dark);font-weight:700;}
+  .divider{height:0.6pt;background:var(--line);margin:4mm 0;}
+  .small{font-size:8.4pt;}
+  .list-check li{list-style:none;position:relative;padding-left:5mm;}
+  .list-check li::before{content:"•";color:var(--accent);position:absolute;left:0;font-weight:900;}
+  .signature-block{display:grid;grid-template-columns:1fr 1fr;gap:10mm;margin-top:8mm;}
+  .sig-line{border-top:0.6pt solid var(--ink);margin-top:14mm;padding-top:2mm;font-size:8.6pt;color:var(--ink-soft);}
+  @page{size:A4;margin:0;}
+  @media print{
+    body{background:#fff;}
+    .page{margin:0;box-shadow:none;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ 1. ОБЛОЖКА ============ -->
+<div class="page">
+  <div class="cover-frame">
+    <div>
+      <div class="logo">
+        <svg width="34" height="34" viewBox="0 0 34 34">
+          <rect x="0" y="0" width="34" height="34" rx="6" fill="#B15E2E"/>
+          <path d="M8 24 L8 12 L14 8 L14 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+          <path d="M14 24 L26 24 L26 15 L20 12 L14 15" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+        </svg>
+        <div>
+          <div class="word">СТЕНД-ПРО</div>
+          <div class="tagline">выставочные конструкции под ключ</div>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <div class="small muted">ООО «Стенд-Про» &middot; Москва &middot; собственное производство &middot; действует многолетний опыт</div>
+    </div>
+
+    <div style="margin-top:36mm;">
+      <div class="small muted" style="letter-spacing:0.14em;text-transform:uppercase;margin-bottom:4mm;">Коммерческое предложение № <span class="ph">{номер_кп}</span></div>
+      <h1 style="font-size:27pt;line-height:1.15;">Застройка выставочного<br>стенда под ключ</h1>
+      <p class="lead" style="margin-top:4mm;">для компании <b>«<span class="ph">{заказчик}</span>»</b></p>
+      <div class="box accentbox" style="margin-top:8mm;">
+        <div class="grid3">
+          <div>
+            <div class="small muted" style="text-transform:uppercase;letter-spacing:0.06em;">Выставка</div>
+            <div style="font-weight:700;" class="ph">{название_выставки}, {площадка}</div>
+          </div>
+          <div>
+            <div class="small muted" style="text-transform:uppercase;letter-spacing:0.06em;">Даты работы</div>
+            <div style="font-weight:700;" class="ph">{даты_работы_выставки}</div>
+          </div>
+          <div>
+            <div class="small muted" style="text-transform:uppercase;letter-spacing:0.06em;">Площадь и тип</div>
+            <div style="font-weight:700;"><span class="ph">{площадь}</span> м², <span class="ph">{тип_стенда}</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="divider"></div>
+      <div class="grid3 small">
+        <div><b>Дата составления:</b><br><span class="ph">{дата_составления}</span></div>
+        <div><b>Предложение действительно:</b><br>до <span class="ph">{дата_окончания_действия}</span> (14 дней)</div>
+        <div><b>Номер версии:</b><br><span class="ph">{версия_документа}</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <span>Стенд-Про &middot; КП № <span class="ph">{номер_кп}</span> &middot; <span class="ph">{заказчик}</span></span>
+    <span class="fnum">Стр. 1</span>
+  </div>
+</div>
+
+<!-- ============ 2. ОГЛАВЛЕНИЕ ============ -->
+<div class="page">
+  <h2 class="section-title">Оглавление</h2>
+  <h3 class="doc-title">Содержание предложения</h3>
+  <table class="plain">
+    <tr><td style="width:8mm;" class="mono">01</td><td>Понимание задачи</td><td class="mono" style="text-align:right;width:14mm;">{стр}</td></tr>
+    <tr><td class="mono">02</td><td>Концепция и зонирование</td><td class="mono" style="text-align:right;">{стр}</td></tr>
+    <tr><td class="mono">03</td><td>План стенда, {площадь} м²</td><td class="mono" style="text-align:right;">{стр}</td></tr>
+    <tr><td class="mono">04</td><td>Развёртки и виды</td><td class="mono" style="text-align:right;">{стр}</td></tr>
+    <tr><td class="mono">05</td><td>Состав работ по разделам</td><td class="mono" style="text-align:right;">{стр}</td></tr>
+    <tr><td class="mono">06</td><td>Смета проекта</td><td class="mono" style="text-align:right;">{стр}</td></tr>
+    <tr><td class="mono">07</td><td>График проекта</td><td class="mono" style="text-align:right;">{стр}</td></tr>
+    <tr><td class="mono">08</td><td>Что входит и что не входит в стоимость</td><td class="mono" style="text-align:right;">{стр}</td></tr>
+    <tr><td class="mono">09</td><td>Условия сотрудничества</td><td class="mono" style="text-align:right;">{стр}</td></tr>
+    <tr><td class="mono">10</td><td>Почему «Стенд-Про»</td><td class="mono" style="text-align:right;">{стр}</td></tr>
+    <tr><td class="mono">11</td><td>Контакты и подпись</td><td class="mono" style="text-align:right;">{стр}</td></tr>
+  </table>
+  <div class="box" style="margin-top:8mm;">
+    <p class="small muted" style="margin:0;">Документ подготовлен индивидуально под техническое задание заказчика и не подлежит передаче третьим лицам без согласования с ООО «Стенд-Про». Все визуальные материалы носят эскизный характер и уточняются на этапе разработки рабочей документации.</p>
+  </div>
+  <div class="page-footer">
+    <span>Стенд-Про &middot; КП № <span class="ph">{номер_кп}</span> &middot; <span class="ph">{заказчик}</span></span>
+    <span class="fnum">Стр. 2</span>
+  </div>
+</div>
+
+<!-- ============ 3. ПОНИМАНИЕ ЗАДАЧИ ============ -->
+<div class="page">
+  <h2 class="section-title">01 &middot; Понимание задачи</h2>
+  <h3 class="doc-title">Что мы услышали от заказчика</h3>
+  <p class="lead">Ниже мы зафиксировали вводные, полученные на брифинге, чтобы избежать разночтений на дальнейших этапах проекта.</p>
+  <ul class="list-check">
+    <li class="ph">{вводная_1_площадь_и_тип_стенда}</li>
+    <li class="ph">{вводная_2_ключевая_бизнес_цель_стенда}</li>
+    <li class="ph">{вводная_3_центральный_экспонат}</li>
+    <li class="ph">{вводная_4_зона_приёма_посетителей}</li>
+    <li class="ph">{вводная_5_служебная_зона}</li>
+    <li class="ph">{вводная_6_пожелание_по_стилистике}</li>
+    <li class="ph">{вводная_7_окно_монтажа_и_демонтажа}</li>
+    <li class="ph">{вводная_8_бюджетный_ориентир}</li>
+  </ul>
+  <div class="box" style="margin-top:4mm;">
+    <h4 style="font-size:9pt;text-transform:uppercase;letter-spacing:0.06em;color:var(--accent-dark);margin-bottom:2mm;">Наши уточняющие допущения</h4>
+    <p class="small ph">{допущения_исполнителя_текст}</p>
+  </div>
+  <div class="page-footer">
+    <span>Стенд-Про &middot; КП № <span class="ph">{номер_кп}</span> &middot; <span class="ph">{заказчик}</span></span>
+    <span class="fnum">Стр. 3</span>
+  </div>
+</div>
+
+<!-- ============ 4. КОНЦЕПЦИЯ ============ -->
+<div class="page">
+  <h2 class="section-title">02 &middot; Концепция</h2>
+  <h3 class="doc-title ph">{заголовок_концепции}</h3>
+  <p class="ph">{текст_концепции_абзац_1}</p>
+  <p class="ph">{текст_концепции_абзац_2}</p>
+  <div class="grid2" style="margin-top:5mm;">
+    <div class="box">
+      <h4 style="font-size:9.5pt;margin-bottom:1.6mm;">Логика зонирования</h4>
+      <p class="small ph" style="margin:0;">{логика_зонирования_текст}</p>
+    </div>
+    <div class="box">
+      <h4 style="font-size:9.5pt;margin-bottom:1.6mm;">Логика материалов</h4>
+      <p class="small ph" style="margin:0;">{логика_материалов_текст}</p>
+    </div>
+  </div>
+  <h4 style="font-size:9.5pt;margin-top:5mm;margin-bottom:2mm;">Функциональные зоны</h4>
+  <table class="plain">
+    <tr><th>Зона</th><th>Назначение</th><th style="text-align:right;">Площадь</th></tr>
+    <tr><td class="ph">{зона_1_название}</td><td class="small ph">{зона_1_назначение}</td><td class="num ph" style="text-align:right;">{зона_1_площадь} м²</td></tr>
+    <tr><td class="ph">{зона_2_название}</td><td class="small ph">{зона_2_назначение}</td><td class="num ph" style="text-align:right;">{зона_2_площадь} м²</td></tr>
+    <tr><td class="ph">{зона_3_название}</td><td class="small ph">{зона_3_назначение}</td><td class="num ph" style="text-align:right;">{зона_3_площадь} м²</td></tr>
+    <tr><td class="ph">{зона_4_название}</td><td class="small ph">{зона_4_назначение}</td><td class="num ph" style="text-align:right;">{зона_4_площадь} м²</td></tr>
+    <tr><td class="ph">{зона_5_название}</td><td class="small ph">{зона_5_назначение}</td><td class="num ph" style="text-align:right;">{зона_5_площадь} м²</td></tr>
+    <tr class="subtotal"><td colspan="2"><b>Итого площадь стенда</b></td><td class="num ph" style="text-align:right;"><b>{площадь} м²</b></td></tr>
+  </table>
+  <div class="page-footer">
+    <span>Стенд-Про &middot; КП № <span class="ph">{номер_кп}</span> &middot; <span class="ph">{заказчик}</span></span>
+    <span class="fnum">Стр. 4</span>
+  </div>
+</div>
+
+<!-- ============ 5. КОНЦЕПЦИЯ (продолжение) ============ -->
+<div class="page">
+  <h2 class="section-title">02 &middot; Концепция</h2>
+  <h3 class="doc-title ph">{заголовок_сценария_движения}</h3>
+  <p>{текст_вводный_к_сценарию}</p>
+  <ol>
+    <li class="ph">{шаг_сценария_1}</li>
+    <li class="ph">{шаг_сценария_2}</li>
+    <li class="ph">{шаг_сценария_3}</li>
+    <li class="ph">{шаг_сценария_4}</li>
+    <li class="ph">{шаг_сценария_5}</li>
+  </ol>
+  <div class="box accentbox" style="margin-top:6mm;">
+    <h4 style="font-size:9.5pt;margin-bottom:2mm;">Ключевая идея презентации</h4>
+    <p style="margin:0;" class="ph">{ключевая_идея_текст}</p>
+  </div>
+  <h4 style="font-size:9.5pt;margin-top:6mm;margin-bottom:2mm;">Габариты и технические параметры</h4>
+  <div class="grid3">
+    <div class="kpi"><span class="n ph">{габариты_в_плане}</span><span class="l">м, габариты в плане</span></div>
+    <div class="kpi"><span class="n ph">{высота_конструктива}</span><span class="l">м, высота конструктива</span></div>
+    <div class="kpi"><span class="n ph">{число_открытых_сторон}</span><span class="l">открытые стороны</span></div>
+  </div>
+  <p class="small muted ph" style="margin-top:4mm;">{комментарий_по_высоте_и_регламенту_павильона}</p>
+  <div class="page-footer">
+    <span>Стенд-Про &middot; КП № <span class="ph">{номер_кп}</span> &middot; <span class="ph">{заказчик}</span></span>
+    <span class="fnum">Стр. 5</span>
+  </div>
+</div>
+
+<!-- ============ 6. ПЛАН СТЕНДА ============ -->
+<div class="page">
+  <h2 class="section-title">03 &middot; План стенда</h2>
+  <h3 class="doc-title">Планировка, {площадь} м², масштаб не соблюдён</h3>
+  <svg viewBox="0 0 1200 1080" width="100%" style="max-height:190mm;">
+    <rect x="40" y="40" width="1120" height="960" fill="#FAF8F4" stroke="none"/>
+    <rect x="40" y="40" width="420" height="384" fill="#EFE3D6" stroke="#B15E2E" stroke-width="2"/>
+    <text x="250" y="210" text-anchor="middle" font-family="Raleway" font-size="26" font-weight="700" fill="#1F1B16">{зона_1_название}</text>
+    <text x="250" y="242" text-anchor="middle" font-family="JetBrains Mono" font-size="20" fill="#8A8478">{зона_1_площадь} м²</text>
+
+    <rect x="40" y="424" width="380" height="192" fill="#EEEBE2" stroke="#8A8478" stroke-width="2"/>
+    <text x="230" y="512" text-anchor="middle" font-family="Raleway" font-size="22" font-weight="700" fill="#1F1B16">{зона_2_название}</text>
+    <text x="230" y="540" text-anchor="middle" font-family="JetBrains Mono" font-size="18" fill="#8A8478">{зона_2_площадь} м²</text>
+
+    <rect x="460" y="40" width="576" height="480" fill="#F3E9DE" stroke="#B15E2E" stroke-width="2"/>
+    <text x="748" y="250" text-anchor="middle" font-family="Raleway" font-size="28" font-weight="700" fill="#1F1B16">{зона_3_название}</text>
+    <text x="748" y="284" text-anchor="middle" font-family="JetBrains Mono" font-size="20" fill="#8A8478">{зона_3_площадь} м²</text>
+
+    <rect x="760" y="680" width="400" height="288" fill="#EFE3D6" stroke="#B15E2E" stroke-width="2"/>
+    <text x="960" y="810" text-anchor="middle" font-family="Raleway" font-size="24" font-weight="700" fill="#1F1B16">{зона_4_название}</text>
+    <text x="960" y="840" text-anchor="middle" font-family="JetBrains Mono" font-size="18" fill="#8A8478">{зона_4_площадь} м²</text>
+
+    <text x="330" y="820" text-anchor="middle" font-family="Raleway" font-size="20" fill="#4A443C">{зона_5_название}</text>
+    <text x="330" y="878" text-anchor="middle" font-family="JetBrains Mono" font-size="18" fill="#8A8478">{зона_5_площадь} м²</text>
+
+    <line x1="40" y1="40" x2="40" y2="1000" stroke="#1F1B16" stroke-width="8"/>
+    <line x1="40" y1="40" x2="1160" y2="40" stroke="#1F1B16" stroke-width="8"/>
+    <line x1="1160" y1="40" x2="1160" y2="1000" stroke="#B15E2E" stroke-width="4" stroke-dasharray="14 10"/>
+    <line x1="40" y1="1000" x2="1160" y2="1000" stroke="#B15E2E" stroke-width="4" stroke-dasharray="14 10"/>
+
+    <line x1="40" y1="1030" x2="1160" y2="1030" stroke="#4A443C" stroke-width="1.5"/>
+    <line x1="40" y1="1020" x2="40" y2="1040" stroke="#4A443C" stroke-width="1.5"/>
+    <line x1="1160" y1="1020" x2="1160" y2="1040" stroke="#4A443C" stroke-width="1.5"/>
+    <text x="600" y="1065" text-anchor="middle" font-family="JetBrains Mono" font-size="20" fill="#4A443C">{ширина_стенда} м</text>
+
+    <line x1="1190" y1="40" x2="1190" y2="1000" stroke="#4A443C" stroke-width="1.5"/>
+    <line x1="1180" y1="40" x2="1200" y2="40" stroke="#4A443C" stroke-width="1.5"/>
+    <line x1="1180" y1="1000" x2="1200" y2="1000" stroke="#4A443C" stroke-width="1.5"/>
+    <text x="1195" y="520" font-family="JetBrains Mono" font-size="20" fill="#4A443C" transform="rotate(90 1195 520)" text-anchor="middle">{глубина_стенда} м</text>
+
+    <text x="1172" y="510" font-family="Raleway" font-size="16" fill="#B15E2E" transform="rotate(90 1172 510)">{подпись_открытой_стороны_1}</text>
+    <text x="600" y="1018" text-anchor="middle" font-family="Raleway" font-size="16" fill="#B15E2E">{подпись_открытой_стороны_2}</text>
+  </svg>
+  <div class="zone-legend">
+    <div class="li"><span class="swatch" style="background:#EFE3D6;border:1px solid #B15E2E;"></span>Основные представительские зоны</div>
+    <div class="li"><span class="swatch" style="background:#EEEBE2;border:1px solid #8A8478;"></span>Служебная зона</div>
+    <div class="li"><span class="swatch" style="background:#FAF8F4;border:1px dashed #B15E2E;"></span>Открытые проходы</div>
+  </div>
+  <div class="page-footer">
+    <span>Стенд-Про &middot; КП № <span class="ph">{номер_кп}</span> &middot; <span class="ph">{заказчик}</span></span>
+    <span class="fnum">Стр. 6</span>
+  </div>
+</div>
+
+<!-- ============ 7. РАЗВЁРТКИ (фасад 1) ============ -->
+<div class="page">
+  <h2 class="section-title">04 &middot; Развёртки и виды</h2>
+  <h3 class="doc-title">Фасад со стороны прохода 1</h3>
+  <p class="small muted">Схематичная проекция без фотореализма, для понимания членения фасада и высотных отметок. Финальная графика и материалы уточняются на этапе дизайн-макета.</p>
+  <svg viewBox="0 0 1200 620" width="100%" style="max-height:120mm;">
+    <line x1="60" y1="560" x2="1140" y2="560" stroke="#1F1B16" stroke-width="2"/>
+    <rect x="60" y="90" width="1080" height="60" fill="#F3E9DE" stroke="#B15E2E" stroke-width="2"/>
+    <text x="600" y="128" text-anchor="middle" font-family="Raleway" font-weight="700" font-size="22" fill="#B15E2E">{текст_логотипного_фриза}</text>
+    <rect x="60" y="150" width="340" height="410" fill="#EFE3D6" stroke="#8A8478" stroke-width="1.5"/>
+    <text x="230" y="372" text-anchor="middle" font-family="Raleway" font-size="18" fill="#4A443C">{подпись_фасада_1_сегмент_1}</text>
+    <rect x="400" y="150" width="330" height="410" fill="#EAF0F0" stroke="#3F6B4A" stroke-width="1.5"/>
+    <line x1="480" y1="150" x2="480" y2="560" stroke="#3F6B4A" stroke-width="1"/>
+    <line x1="560" y1="150" x2="560" y2="560" stroke="#3F6B4A" stroke-width="1"/>
+    <line x1="640" y1="150" x2="640" y2="560" stroke="#3F6B4A" stroke-width="1"/>
+    <text x="565" y="372" text-anchor="middle" font-family="Raleway" font-size="18" fill="#3F6B4A">{подпись_фасада_1_сегмент_2}</text>
+    <rect x="730" y="150" width="410" height="410" fill="none" stroke="#B15E2E" stroke-width="2" stroke-dasharray="10 8"/>
+    <text x="935" y="352" text-anchor="middle" font-family="Raleway" font-size="18" fill="#B15E2E">{подпись_фасада_1_сегмент_3}</text>
+    <line x1="30" y1="90" x2="30" y2="560" stroke="#4A443C" stroke-width="1.2"/>
+    <line x1="20" y1="90" x2="40" y2="90" stroke="#4A443C" stroke-width="1.2"/>
+    <line x1="20" y1="560" x2="40" y2="560" stroke="#4A443C" stroke-width="1.2"/>
+    <text x="20" y="330" font-family="JetBrains Mono" font-size="18" fill="#4A443C" transform="rotate(-90 20 330)" text-anchor="middle">{высота_конструктива} м</text>
+  </svg>
+  <p class="small ph" style="margin-top:3mm;">{описание_фасада_1_текст}</p>
+  <div class="page-footer">
+    <span>Стенд-Про &middot; КП № <span class="ph">{номер_кп}</span> &middot; <span class="ph">{заказчик}</span></span>
+    <span class="fnum">Стр. 7</span>
+  </div>
+</div>
+
+<!-- ============ 8. РАЗВЁРТКИ (фасад 2 + разрез) ============ -->
+<div class="page">
+  <h2 class="section-title">04 &middot; Развёртки и виды</h2>
+  <h3 class="doc-title">Фасад со стороны прохода 2</h3>
+  <svg viewBox="0 0 1200 620" width="100%" style="max-height:110mm;">
+    <line x1="60" y1="560" x2="1140" y2="560" stroke="#1F1B16" stroke-width="2"/>
+    <rect x="60" y="90" width="1080" height="60" fill="#F3E9DE" stroke="#B15E2E" stroke-width="2"/>
+    <text x="600" y="128" text-anchor="middle" font-family="Raleway" font-weight="700" font-size="22" fill="#B15E2E">{текст_логотипного_фриза}</text>
+    <rect x="60" y="150" width="480" height="410" fill="none" stroke="#B15E2E" stroke-width="2" stroke-dasharray="10 8"/>
+    <text x="300" y="362" text-anchor="middle" font-family="Raleway" font-size="18" fill="#B15E2E">{подпись_фасада_2_сегмент_1}</text>
+    <rect x="540" y="380" width="300" height="180" fill="#EFE3D6" stroke="#8A8478" stroke-width="1.5"/>
+    <text x="690" y="470" text-anchor="middle" font-family="Raleway" font-size="18" fill="#4A443C">{подпись_фасада_2_сегмент_2}</text>
+    <rect x="840" y="150" width="300" height="410" fill="#EFE3D6" stroke="#8A8478" stroke-width="1.5"/>
+    <text x="990" y="372" text-anchor="middle" font-family="Raleway" font-size="18" fill="#4A443C">{подпись_фасада_2_сегмент_3}</text>
+    <line x1="30" y1="90" x2="30" y2="560" stroke="#4A443C" stroke-width="1.2"/>
+    <line x1="20" y1="90" x2="40" y2="90" stroke="#4A443C" stroke-width="1.2"/>
+    <line x1="20" y1="560" x2="40" y2="560" stroke="#4A443C" stroke-width="1.2"/>
+    <text x="20" y="330" font-family="JetBrains Mono" font-size="18" fill="#4A443C" transform="rotate(-90 20 330)" text-anchor="middle">{высота_конструктива} м</text>
+  </svg>
+  <p class="small ph">{описание_фасада_2_текст}</p>
+  <div class="divider"></div>
+  <h4 style="font-size:9.5pt;margin-bottom:2mm;">Разрез ключевой зоны</h4>
+  <svg viewBox="0 0 1200 420" width="100%" style="max-height:78mm;">
+    <line x1="60" y1="380" x2="1140" y2="380" stroke="#1F1B16" stroke-width="2"/>
+    <rect x="150" y="60" width="900" height="320" fill="#EAF0F0" stroke="#3F6B4A" stroke-width="1.5"/>
+    <rect x="330" y="240" width="540" height="100" fill="#F3E9DE" stroke="#8A8478" stroke-width="1.2"/>
+    <text x="600" y="296" text-anchor="middle" font-family="Raleway" font-size="16" fill="#4A443C">{подпись_разреза_мебель}</text>
+    <text x="600" y="150" text-anchor="middle" font-family="Raleway" font-size="14" fill="#8A8478">{подпись_разреза_свет}</text>
+    <text x="600" y="410" text-anchor="middle" font-family="JetBrains Mono" font-size="16" fill="#4A443C">{габариты_разреза}</text>
+  </svg>
+  <div class="page-footer">
+    <span>Стенд-Про &middot; КП № <span class="ph">{номер_кп}</span> &middot; <span class="ph">{заказчик}</span></span>
+    <span class="fnum">Стр. 8</span>
+  </div>
+</div>
+
+<!-- ============ 9. СОСТАВ РАБОТ: КОНСТРУКТИВ ============ -->
+<div class="page">
+  <h2 class="section-title">05 &middot; Состав работ</h2>
+  <h3 class="doc-title">Конструктив</h3>
+  <p class="ph">{конструктив_вводный_текст}</p>
+  <ul class="list-check">
+    <li class="ph">{конструктив_пункт_1}</li>
+    <li class="ph">{конструктив_пункт_2}</li>
+    <li class="ph">{конструктив_пункт_3}</li>
+    <li class="ph">{конструктив_пункт_4}</li>
+    <li class="ph">{конструктив_пункт_5}</li>
+  </ul>
+  <div class="box">
+    <p class="small ph" style="margin:0;">{конструктив_материалы_текст}</p>
+  </div>
+  <div class="page-footer">
+    <span>Стенд-Про &middot; КП № <span class="ph">{номер_кп}</span> &middot; <span class="ph">{заказчик}</span></span>
+    <span class="fnum">Стр. 9</span>
+  </div>
+</div>
+
+<!-- ============ 10. СОСТАВ РАБОТ: ЗАШИВКА И ОТДЕЛКА / ГРАФИКА ============ -->
+<div class="page">
+  <h2 class="section-title">05 &middot; Состав работ</h2>
+  <h3 class="doc-title">Зашивка и отделка</h3>
+  <p class="ph">{отделка_вводный_текст}</p>
+  <ul class="list-check">
+    <li class="ph">{отделка_пункт_1}</li>
+    <li class="ph">{отделка_пункт_2}</li>
+    <li class="ph">{отделка_пункт_3}</li>
+    <li class="ph">{отделка_пункт_4}</li>
+  </ul>
+  <div class="box">
+    <p class="small ph" style="margin:0;">{отделка_производство_текст}</p>
+  </div>
+  <h3 class="doc-title" style="margin-top:8mm;">Графика и печать</h3>
+  <ul class="list-check">
+    <li class="ph">{графика_пункт_1}</li>
+    <li class="ph">{графика_пункт_2}</li>
+    <li class="ph">{графика_пункт_3}</li>
+    <li class="ph">{графика_пункт_4}</li>
+  </ul>
+  <div class="page-footer">
+    <span>Стенд-Про &middot; КП № <span class="ph">{номер_кп}</span> &middot; <span class="ph">{заказчик}</span></span>
+    <span class="fnum">Стр. 10</span>
+  </div>
+</div>
+
+<!-- ============ 11. СОСТАВ РАБОТ: СВЕТ / МЕБЕЛЬ ============ -->
+<div class="page">
+  <h2 class="section-title">05 &middot; Состав работ</h2>
+  <h3 class="doc-title">Свет и электрика</h3>
+  <p class="ph">{свет_вводный_текст}</p>
+  <ul class="list-check">
+    <li class="ph">{свет_пункт_1}</li>
+    <li class="ph">{свет_пункт_2}</li>
+    <li class="ph">{свет_пункт_3}</li>
+    <li class="ph">{свет_пункт_4}</li>
+  </ul>
+  <div class="box">
+    <p class="small ph" style="margin:0;">{свет_примечание_по_электроподключению}</p>
+  </div>
+  <h3 class="doc-title" style="margin-top:8mm;">Мебель и оборудование</h3>
+  <ul class="list-check">
+    <li class="ph">{мебель_пункт_1}</li>
+    <li class="ph">{мебель_пункт_2}</li>
+    <li class="ph">{мебель_пункт_3}</li>
+    <li class="ph">{мебель_пункт_4}</li>
+  </ul>
+  <div class="page-footer">
+    <span>Стенд-Про &middot; КП № <span class="ph">{номер_кп}</span> &middot; <span class="ph">{заказчик}</span></span>
+    <span class="fnum">Стр. 11</span>
+  </div>
+</div>
+
+<!-- ============ 12. СОСТАВ РАБОТ: ЛОГИСТИКА / МОНТАЖ ============ -->
+<div class="page">
+  <h2 class="section-title">05 &middot; Состав работ</h2>
+  <h3 class="doc-title">Логистика</h3>
+  <ul class="list-check">
+    <li class="ph">{логистика_пункт_1}</li>
+    <li class="ph">{логистика_пункт_2}</li>
+    <li class="ph">{логистика_пункт_3}</li>
+  </ul>
+  <h3 class="doc-title" style="margin-top:8mm;">Монтаж и демонтаж</h3>
+  <ul class="list-check">
+    <li class="ph">{монтаж_пункт_1}</li>
+    <li class="ph">{монтаж_пункт_2}</li>
+    <li class="ph">{монтаж_пункт_3}</li>
+    <li class="ph">{монтаж_пункт_4}</li>
+  </ul>
+  <div class="box accentbox" style="margin-top:6mm;">
+    <p style="margin:0;" class="ph">{монтаж_преимущество_текст}</p>
+  </div>
+  <div class="page-footer">
+    <span>Стенд-Про &middot; КП № <span class="ph">{номер_кп}</span> &middot; <span class="ph">{заказчик}</span></span>
+    <span class="fnum">Стр. 12</span>
+  </div>
+</div>
+
+<!-- ============ 13. СПЕЦИФИКАЦИЯ МАТЕРИАЛОВ ============ -->
+<div class="page">
+  <h2 class="section-title">05 &middot; Состав работ</h2>
+  <h3 class="doc-title">Спецификация основных материалов</h3>
+  <table class="plain">
+    <tr><th>Элемент</th><th>Материал</th><th>Характеристики</th></tr>
+    <tr><td class="ph">{материал_1_элемент}</td><td class="small ph">{материал_1_наименование}</td><td class="small ph">{материал_1_характеристики}</td></tr>
+    <tr><td class="ph">{материал_2_элемент}</td><td class="small ph">{материал_2_наименование}</td><td class="small ph">{материал_2_характеристики}</td></tr>
+    <tr><td class="ph">{материал_3_элемент}</td><td class="small ph">{материал_3_наименование}</td><td class="small ph">{материал_3_характеристики}</td></tr>
+    <tr><td class="ph">{материал_4_элемент}</td><td class="small ph">{материал_4_наименование}</td><td class="small ph">{материал_4_характеристики}</td></tr>
+    <tr><td class="ph">{материал_5_элемент}</td><td class="small ph">{материал_5_наименование}</td><td class="small ph">{материал_5_характеристики}</td></tr>
+    <tr><td class="ph">{материал_6_элемент}</td><td class="small ph">{материал_6_наименование}</td><td class="small ph">{материал_6_характеристики}</td></tr>
+    <tr><td class="ph">{материал_7_элемент}</td><td class="small ph">{материал_7_наименование}</td><td class="small ph">{материал_7_характеристики}</td></tr>
+  </table>
+  <h4 style="font-size:9.5pt;margin-top:6mm;margin-bottom:2mm;">Соответствие требованиям площадки</h4>
+  <p class="small ph">{текст_соответствия_регламенту_площадки}</p>
+  <div class="box" style="margin-top:4mm;">
+    <p class="small ph" style="margin:0;">{допущение_по_сертификатам}</p>
+  </div>
+  <div class="page-footer">
+    <span>Стенд-Про &middot; КП № <span class="ph">{номер_кп}</span> &middot; <span class="ph">{заказчик}</span></span>
+    <span class="fnum">Стр. 13</span>
+  </div>
+</div>
+
+<!-- ============ 14. ЗОНЫ ОТВЕТСТВЕННОСТИ ============ -->
+<div class="page">
+  <h2 class="section-title">05 &middot; Состав работ</h2>
+  <h3 class="doc-title">Зоны ответственности и допущения по проекту</h3>
+  <table class="plain">
+    <tr><th>Зона ответственности</th><th>Сторона</th></tr>
+    <tr><td class="small">Разработка дизайн-макета и 3D-визуализации</td><td class="small"><b>Стенд-Про</b></td></tr>
+    <tr><td class="small">Изготовление конструктива, мебели, графики</td><td class="small"><b>Стенд-Про</b></td></tr>
+    <tr><td class="small">Доставка, монтаж, демонтаж</td><td class="small"><b>Стенд-Про</b></td></tr>
+    <tr><td class="small">Аренда выставочной площади</td><td class="small"><b class="ph">{заказчик}</b> (напрямую с организатором)</td></tr>
+    <tr><td class="small">Электроподключение мощности к щиту стенда</td><td class="small"><b class="ph">{заказчик}</b> (напрямую с организатором)</td></tr>
+    <tr><td class="small ph">{доп_ответственность_заказчика_1}</td><td class="small"><b class="ph">{заказчик}</b></td></tr>
+    <tr><td class="small ph">{доп_ответственность_заказчика_2}</td><td class="small"><b class="ph">{заказчик}</b></td></tr>
+    <tr><td class="small">Страхование экспонатов и оборудования</td><td class="small"><b class="ph">{заказчик}</b></td></tr>
+  </table>
+  <div class="box accentbox" style="margin-top:6mm;">
+    <p style="margin:0;" class="ph">{важное_примечание_по_графику_монтажа}</p>
+  </div>
+  <div class="page-footer">
+    <span>Стенд-Про &middot; КП № <span class="ph">{номер_кп}</span> &middot; <span class="ph">{заказчик}</span></span>
+    <span class="fnum">Стр. 14</span>
+  </div>
+</div>
+
+<!-- ============ 15. РИСКИ ============ -->
+<div class="page">
+  <h2 class="section-title">05 &middot; Состав работ</h2>
+  <h3 class="doc-title">Риски и меры по их снижению</h3>
+  <table class="plain">
+    <tr><th>Риск</th><th>Мера снижения</th></tr>
+    <tr><td class="small ph">{риск_1}</td><td class="small ph">{мера_1}</td></tr>
+    <tr><td class="small ph">{риск_2}</td><td class="small ph">{мера_2}</td></tr>
+    <tr><td class="small ph">{риск_3}</td><td class="small ph">{мера_3}</td></tr>
+    <tr><td class="small ph">{риск_4}</td><td class="small ph">{мера_4}</td></tr>
+    <tr><td class="small ph">{риск_5}</td><td class="small ph">{мера_5}</td></tr>
+  </table>
+  <div class="page-footer">
+    <span>Стенд-Про &middot; КП № <span class="ph">{номер_кп}</span> &middot; <span class="ph">{заказчик}</span></span>
+    <span class="fnum">Стр. 15</span>
+  </div>
+</div>
+
+<!-- ============ 16. СМЕТА: методика + конструктив ============ -->
+<div class="page">
+  <h2 class="section-title">06 &middot; Смета проекта</h2>
+  <h3 class="doc-title">Методика расчёта</h3>
+  <div class="box accentbox">
+    <p style="margin:0;">Базовая (опорная) стоимость застройки рассчитана по ставке для типа стенда <b class="ph">{ставка_за_м2}</b> ₽/м² при площади <b class="ph">{площадь}</b> м², что даёт опорную сумму <b class="num ph">{опорная_сумма}</b> ₽. Эта сумма распределена по разделам сметы ниже. К разделу «Конструктив» применён <b class="ph">коэффициент {коэффициент_типа_стенда}</b>, связанный с типом расположения стенда. Отделка, графика, свет, мебель, логистика и работы по монтажу/демонтажу считаются отдельными строками.</p>
+  </div>
+  <p class="small muted">Позиции в смете помечены как <span class="tag tag-hard">жёсткая</span> &ndash; стоимость фиксирована и не меняется при неизменном техническом задании, либо <span class="tag tag-flex">гибкая</span> &ndash; позиция, по которой возможна оптимизация бюджета без критичной потери качества презентации, см. раздел 08.</p>
+
+  <h4 style="font-size:9.5pt;margin-top:5mm;margin-bottom:2mm;">1. Конструктив</h4>
+  <table class="smeta">
+    <tr><th>Наименование</th><th>Ед.</th><th class="num">Кол-во</th><th class="num">Цена, ₽</th><th class="num">Сумма, ₽</th><th>Тип</th></tr>
+    <tr><td class="ph">{смета_к_1_наименование}</td><td class="ph">{смета_к_1_ед}</td><td class="num ph">{смета_к_1_кол}</td><td class="num ph">{смета_к_1_цена}</td><td class="num ph">{смета_к_1_сумма}</td><td><span class="tag tag-hard ph">{смета_к_1_тип}</span></td></tr>
+    <tr><td class="ph">{смета_к_2_наименование}</td><td class="ph">{смета_к_2_ед}</td><td class="num ph">{смета_к_2_кол}</td><td class="num ph">{смета_к_2_цена}</td><td class="num ph">{смета_к_2_сумма}</td><td><span class="tag tag-hard ph">{смета_к_2_тип}</span></td></tr>
+    <tr><td class="ph">{смета_к_3_наименование}</td><td class="ph">{смета_к_3_ед}</td><td class="num ph">{смета_к_3_кол}</td><td class="num ph">{смета_к_3_цена}</td><td class="num ph">{смета_к_3_сумма}</td><td><span class="tag tag-hard ph">{смета_к_3_тип}</span></td></tr>
+    <tr><td class="ph">{смета_к_4_наименование}</td><td class="ph">{смета_к_4_ед}</td><td class="num ph">{смета_к_4_кол}</td><td class="num ph">{смета_к_4_цена}</td><td class="num ph">{смета_к_4_сумма}</td><td><span class="tag tag-flex ph">{смета_к_4_тип}</span></td></tr>
+    <tr><td class="ph">{смета_к_5_наименование}</td><td class="ph">{смета_к_5_ед}</td><td class="num ph">{смета_к_5_кол}</td><td class="num ph">{смета_к_5_цена}</td><td class="num ph">{смета_к_5_сумма}</td><td><span class="tag tag-flex ph">{смета_к_5_тип}</span></td></tr>
+    <tr><td class="ph">{смета_к_коэфф_строка}</td><td>%</td><td class="num ph">{коэффициент_значение}</td><td class="num">&ndash;</td><td class="num ph">{смета_к_коэфф_сумма}</td><td><span class="tag tag-hard">жёсткая</span></td></tr>
+    <tr class="subtotal"><td colspan="4">Итого по разделу «Конструктив»</td><td class="num ph">{итог_раздела_конструктив}</td><td></td></tr>
+  </table>
+  <div class="page-footer">
+    <span>Стенд-Про &middot; КП № <span class="ph">{номер_кп}</span> &middot; <span class="ph">{заказчик}</span></span>
+    <span class="fnum">Стр. 16</span>
+  </div>
+</div>
+
+<!-- ============ 17. СМЕТА: отделка + графика ============ -->
+<div class="page">
+  <h2 class="section-title">06 &middot; Смета проекта</h2>
+  <h4 style="font-size:9.5pt;margin-bottom:2mm;">2. Зашивка и отделка</h4>
+  <table class="smeta">
+    <tr><th>Наименование</th><th>Ед.</th><th class="num">Кол-во</th><th class="num">Цена, ₽</th><th class="num">Сумма, ₽</th><th>Тип</th></tr>
+    <tr><td class="ph">{смета_о_1_наименование}</td><td class="ph">{смета_о_1_ед}</td><td class="num ph">{смета_о_1_кол}</td><td class="num ph">{смета_о_1_цена}</td><td class="num ph">{смета_о_1_сумма}</td><td><span class="tag tag-hard ph">{смета_о_1_тип}</span></td></tr>
+    <tr><td class="ph">{смета_о_2_наименование}</td><td class="ph">{смета_о_2_ед}</td><td class="num ph">{смета_о_2_кол}</td><td class="num ph">{смета_о_2_цена}</td><td class="num ph">{смета_о_2_сумма}</td><td><span class="tag tag-hard ph">{смета_о_2_тип}</span></td></tr>
+    <tr><td class="ph">{смета_о_3_наименование}</td><td class="ph">{смета_о_3_ед}</td><td class="num ph">{смета_о_3_кол}</td><td class="num ph">{смета_о_3_цена}</td><td class="num ph">{смета_о_3_сумма}</td><td><span class="tag tag-flex ph">{смета_о_3_тип}</span></td></tr>
+    <tr class="subtotal"><td colspan="4">Итого по разделу «Зашивка и отделка»</td><td class="num ph">{итог_раздела_отделка}</td><td></td></tr>
+  </table>
+
+  <h4 style="font-size:9.5pt;margin-top:7mm;margin-bottom:2mm;">3. Графика и печать</h4>
+  <table class="smeta">
+    <tr><th>Наименование</th><th>Ед.</th><th class="num">Кол-во</th><th class="num">Цена, ₽</th><th class="num">Сумма, ₽</th><th>Тип</th></tr>
+    <tr><td class="ph">{смета_г_1_наименование}</td><td class="ph">{смета_г_1_ед}</td><td class="num ph">{смета_г_1_кол}</td><td class="num ph">{смета_г_1_цена}</td><td class="num ph">{смета_г_1_сумма}</td><td><span class="tag tag-flex ph">{смета_г_1_тип}</span></td></tr>
+    <tr><td class="ph">{смета_г_2_наименование}</td><td class="ph">{смета_г_2_ед}</td><td class="num ph">{смета_г_2_кол}</td><td class="num ph">{смета_г_2_цена}</td><td class="num ph">{смета_г_2_сумма}</td><td><span class="tag tag-hard ph">{смета_г_2_тип}</span></td></tr>
+    <tr><td class="ph">{смета_г_3_наименование}</td><td class="ph">{смета_г_3_ед}</td><td class="num ph">{смета_г_3_кол}</td><td class="num ph">{смета_г_3_цена}</td><td class="num ph">{смета_г_3_сумма}</td><td><span class="tag tag-flex ph">{смета_г_3_тип}</span></td></tr>
+    <tr><td class="ph">{смета_г_4_наименование}</td><td class="ph">{смета_г_4_ед}</td><td class="num ph">{смета_г_4_кол}</td><td class="num ph">{смета_г_4_цена}</td><td class="num ph">{смета_г_4_сумма}</td><td><span class="tag tag-flex ph">{смета_г_4_тип}</span></td></tr>
+    <tr class="subtotal"><td colspan="4">Итого по разделу «Графика и печать»</td><td class="num ph">{итог_раздела_графика}</td><td></td></tr>
+  </table>
+  <div class="page-footer">
+    <span>Стенд-Про &middot; КП № <span class="ph">{номер_кп}</span> &middot; <span class="ph">{заказчик}</span></span>
+    <span class="fnum">Стр. 17</span>
+  </div>
+</div>
+
+<!-- ============ 18. СМЕТА: свет + мебель ============ -->
+<div class="page">
+  <h2 class="section-title">06 &middot; Смета проекта</h2>
+  <h4 style="font-size:9.5pt;margin-bottom:2mm;">4. Свет и электрика</h4>
+  <table class="smeta">
+    <tr><th>Наименование</th><th>Ед.</th><th class="num">Кол-во</th><th class="num">Цена, ₽</th><th class="num">Сумма, ₽</th><th>Тип</th></tr>
+    <tr><td class="ph">{смета_с_1_наименование}</td><td class="ph">{смета_с_1_ед}</td><td class="num ph">{смета_с_1_кол}</td><td class="num ph">{смета_с_1_цена}</td><td class="num ph">{смета_с_1_сумма}</td><td><span class="tag tag-hard ph">{смета_с_1_тип}</span></td></tr>
+    <tr><td class="ph">{смета_с_2_наименование}</td><td class="ph">{смета_с_2_ед}</td><td class="num ph">{смета_с_2_кол}</td><td class="num ph">{смета_с_2_цена}</td><td class="num ph">{смета_с_2_сумма}</td><td><span class="tag tag-flex ph">{смета_с_2_тип}</span></td></tr>
+    <tr><td class="ph">{смета_с_3_наименование}</td><td class="ph">{смета_с_3_ед}</td><td class="num ph">{смета_с_3_кол}</td><td class="num ph">{смета_с_3_цена}</td><td class="num ph">{смета_с_3_сумма}</td><td><span class="tag tag-hard ph">{смета_с_3_тип}</span></td></tr>
+    <tr><td class="ph">{смета_с_4_наименование}</td><td class="ph">{смета_с_4_ед}</td><td class="num ph">{смета_с_4_кол}</td><td class="num ph">{смета_с_4_цена}</td><td class="num ph">{смета_с_4_сумма}</td><td><span class="tag tag-flex ph">{смета_с_4_тип}</span></td></tr>
+    <tr class="subtotal"><td colspan="4">Итого по разделу «Свет и электрика»</td><td class="num ph">{итог_раздела_свет}</td><td></td></tr>
+  </table>
+
+  <h4 style="font-size:9.5pt;margin-top:7mm;margin-bottom:2mm;">5. Мебель и оборудование</h4>
+  <table class="smeta">
+    <tr><th>Наименование</th><th>Ед.</th><th class="num">Кол-во</th><th class="num">Цена, ₽</th><th class="num">Сумма, ₽</th><th>Тип</th></tr>
+    <tr><td class="ph">{смета_м_1_наименование}</td><td class="ph">{смета_м_1_ед}</td><td class="num ph">{смета_м_1_кол}</td><td class="num ph">{смета_м_1_цена}</td><td class="num ph">{смета_м_1_сумма}</td><td><span class="tag tag-flex ph">{смета_м_1_тип}</span></td></tr>
+    <tr><td class="ph">{смета_м_2_наименование}</td><td class="ph">{смета_м_2_ед}</td><td class="num ph">{смета_м_2_кол}</td><td class="num ph">{смета_м_2_цена}</td><td class="num ph">{смета_м_2_сумма}</td><td><span class="tag tag-hard ph">{смета_м_2_тип}</span></td></tr>
+    <tr><td class="ph">{смета_м_3_наименование}</td><td class="ph">{смета_м_3_ед}</td><td class="num ph">{смета_м_3_кол}</td><td class="num ph">{смета_м_3_цена}</td><td class="num ph">{смета_м_3_сумма}</td><td><span class="tag tag-hard ph">{смета_м_3_тип}</span></td></tr>
+    <tr><td class="ph">{смета_м_4_наименование}</td><td class="ph">{смета_м_4_ед}</td><td class="num ph">{смета_м_4_кол}</td><td class="num ph">{смета_м_4_цена}</td><td class="num ph">{смета_м_4_сумма}</td><td><span class="tag tag-flex ph">{смета_м_4_тип}</span></td></tr>
+    <tr class="subtotal"><td colspan="4">Итого по разделу «Мебель и оборудование»</td><td class="num ph">{итог_раздела_мебель}</td><td></td></tr>
+  </table>
+  <div class="page-footer">
+    <span>Стенд-Про &middot; КП № <span class="ph">{номер_кп}</span> &middot; <span class="ph">{заказчик}</span></span>
+    <span class="fnum">Стр. 18</span>
+  </div>
+</div>
+
+<!-- ============ 19. СМЕТА: логистика + монтаж ============ -->
+<div class="page">
+  <h2 class="section-title">06 &middot; Смета проекта</h2>
+  <h4 style="font-size:9.5pt;margin-bottom:2mm;">6. Логистика</h4>
+  <table class="smeta">
+    <tr><th>Наименование</th><th>Ед.</th><th class="num">Кол-во</th><th class="num">Цена, ₽</th><th class="num">Сумма, ₽</th><th>Тип</th></tr>
+    <tr><td class="ph">{смета_л_1_наименование}</td><td class="ph">{смета_л_1_ед}</td><td class="num ph">{смета_л_1_кол}</td><td class="num ph">{смета_л_1_цена}</td><td class="num ph">{смета_л_1_сумма}</td><td><span class="tag tag-hard ph">{смета_л_1_тип}</span></td></tr>
+    <tr><td class="ph">{смета_л_2_наименование}</td><td class="ph">{смета_л_2_ед}</td><td class="num ph">{смета_л_2_кол}</td><td class="num ph">{смета_л_2_цена}</td><td class="num ph">{смета_л_2_сумма}</td><td><span class="tag tag-hard ph">{смета_л_2_тип}</span></td></tr>
+    <tr class="subtotal"><td colspan="4">Итого по разделу «Логистика»</td><td class="num ph">{итог_раздела_логистика}</td><td></td></tr>
+  </table>
+
+  <h4 style="font-size:9.5pt;margin-top:7mm;margin-bottom:2mm;">7. Монтаж и демонтаж</h4>
+  <table class="smeta">
+    <tr><th>Наименование</th><th>Ед.</th><th class="num">Кол-во</th><th class="num">Цена, ₽</th><th class="num">Сумма, ₽</th><th>Тип</th></tr>
+    <tr><td class="ph">{смета_мд_1_наименование}</td><td class="ph">{смета_мд_1_ед}</td><td class="num ph">{смета_мд_1_кол}</td><td class="num ph">{смета_мд_1_цена}</td><td class="num ph">{смета_мд_1_сумма}</td><td><span class="tag tag-hard ph">{смета_мд_1_тип}</span></td></tr>
+    <tr><td class="ph">{смета_мд_2_наименование}</td><td class="ph">{смета_мд_2_ед}</td><td class="num ph">{смета_мд_2_кол}</td><td class="num ph">{смета_мд_2_цена}</td><td class="num ph">{смета_мд_2_сумма}</td><td><span class="tag tag-hard ph">{смета_мд_2_тип}</span></td></tr>
+    <tr class="subtotal"><td colspan="4">Итого по разделу «Монтаж и демонтаж»</td><td class="num ph">{итог_раздела_монтаж}</td><td></td></tr>
+  </table>
+  <p class="small muted ph" style="margin-top:3mm;">{примечание_региональный_коэффициент}</p>
+  <div class="page-footer">
+    <span>Стенд-Про &middot; КП № <span class="ph">{номер_кп}</span> &middot; <span class="ph">{заказчик}</span></span>
+    <span class="fnum">Стр. 19</span>
+  </div>
+</div>
+
+<!-- ============ 20. СМЕТА: итог ============ -->
+<div class="page">
+  <h2 class="section-title">06 &middot; Смета проекта</h2>
+  <h3 class="doc-title">Итоговая сводка по разделам</h3>
+  <table class="smeta">
+    <tr><th>Раздел</th><th class="num">Сумма, ₽</th><th class="num">Доля</th></tr>
+    <tr><td>1. Конструктив</td><td class="num ph">{итог_раздела_конструктив}</td><td class="num ph">{доля_конструктив}%</td></tr>
+    <tr><td>2. Зашивка и отделка</td><td class="num ph">{итог_раздела_отделка}</td><td class="num ph">{доля_отделка}%</td></tr>
+    <tr><td>3. Графика и печать</td><td class="num ph">{итог_раздела_графика}</td><td class="num ph">{доля_графика}%</td></tr>
+    <tr><td>4. Свет и электрика</td><td class="num ph">{итог_раздела_свет}</td><td class="num ph">{доля_свет}%</td></tr>
+    <tr><td>5. Мебель и оборудование</td><td class="num ph">{итог_раздела_мебель}</td><td class="num ph">{доля_мебель}%</td></tr>
+    <tr><td>6. Логистика</td><td class="num ph">{итог_раздела_логистика}</td><td class="num ph">{доля_логистика}%</td></tr>
+    <tr><td>7. Монтаж и демонтаж</td><td class="num ph">{итог_раздела_монтаж}</td><td class="num ph">{доля_монтаж}%</td></tr>
+    <tr class="subtotal"><td><b>Итого по смете</b></td><td class="num ph"><b>{итог_сметы}</b></td><td class="num"><b>100%</b></td></tr>
+  </table>
+  <div class="box accentbox" style="margin-top:6mm;">
+    <div class="grid3">
+      <div class="kpi"><span class="n ph">{вилка_нижняя_граница}</span><span class="l">нижняя граница, &minus;8%</span></div>
+      <div class="kpi"><span class="n ph">{итог_сметы}</span><span class="l">итог сметы</span></div>
+      <div class="kpi"><span class="n ph">{вилка_верхняя_граница}</span><span class="l">верхняя граница, +8%</span></div>
+    </div>
+    <p class="small ph" style="margin-top:4mm;margin-bottom:0;">{комментарий_к_вилке_и_бюджету_заказчика}</p>
+  </div>
+  <h4 style="font-size:9.5pt;margin-top:6mm;margin-bottom:2mm;">Из чего можно сократить бюджет</h4>
+  <p class="small ph">{комментарий_гибкие_позиции_и_сумма}</p>
+  <div class="page-footer">
+    <span>Стенд-Про &middot; КП № <span class="ph">{номер_кп}</span> &middot; <span class="ph">{заказчик}</span></span>
+    <span class="fnum">Стр. 20</span>
+  </div>
+</div>
+
+<!-- ============ 21. СМЕТА доп: НДС ============ -->
+<div class="page">
+  <h2 class="section-title">06 &middot; Смета проекта</h2>
+  <h3 class="doc-title">Налоги и валюта расчёта</h3>
+  <table class="plain">
+    <tr><td class="small">Валюта сметы</td><td class="small"><b>российский рубль, ₽</b></td></tr>
+    <tr><td class="small">Система налогообложения ООО «Стенд-Про»</td><td class="small">общая, НДС по действующей ставке включён в указанные суммы</td></tr>
+    <tr><td class="small">Итог с учётом НДС</td><td class="small num ph"><b>{итог_сметы}</b> ₽, в т.ч. НДС по действующей ставке &ndash; {сумма_ндс} ₽</td></tr>
+    <tr><td class="small">Курсовые риски</td><td class="small">отсутствуют, все материалы закупаются в рублях у российских поставщиков</td></tr>
+  </table>
+  <div class="box" style="margin-top:6mm;">
+    <p class="small ph" style="margin:0;">{условие_фиксации_сметы_на_срок_действия_кп}</p>
+  </div>
+  <div class="page-footer">
+    <span>Стенд-Про &middot; КП № <span class="ph">{номер_кп}</span> &middot; <span class="ph">{заказчик}</span></span>
+    <span class="fnum">Стр. 21</span>
+  </div>
+</div>
+
+<!-- ============ 22. ГРАФИК ПРОЕКТА ============ -->
+<div class="page">
+  <h2 class="section-title">07 &middot; График проекта</h2>
+  <h3 class="doc-title">От согласования до демонтажа</h3>
+  <table class="plain">
+    <tr><th>Неделя</th><th>Даты</th><th>Этап</th></tr>
+    <tr><td class="mono small">1</td><td class="small ph">{неделя_1_даты}</td><td class="small ph">{неделя_1_этап}</td></tr>
+    <tr><td class="mono small">2</td><td class="small ph">{неделя_2_даты}</td><td class="small ph">{неделя_2_этап}</td></tr>
+    <tr><td class="mono small">3</td><td class="small ph">{неделя_3_даты}</td><td class="small ph">{неделя_3_этап}</td></tr>
+    <tr><td class="mono small">4</td><td class="small ph">{неделя_4_даты}</td><td class="small ph">{неделя_4_этап}</td></tr>
+    <tr><td class="mono small">5</td><td class="small ph">{неделя_5_даты}</td><td class="small ph">{неделя_5_этап}</td></tr>
+    <tr><td class="mono small">6</td><td class="small ph">{неделя_6_даты}</td><td class="small ph">{неделя_6_этап}</td></tr>
+    <tr><td class="mono small">7</td><td class="small ph">{неделя_7_даты}</td><td class="small ph">{неделя_7_этап}</td></tr>
+    <tr><td class="mono small">8</td><td class="small ph">{неделя_8_даты}</td><td class="small ph">{неделя_8_этап}</td></tr>
+    <tr><td class="mono small">9</td><td class="small ph">{неделя_9_даты}</td><td class="small ph">{неделя_9_этап}</td></tr>
+  </table>
+  <div class="box" style="margin-top:5mm;">
+    <p class="small ph" style="margin:0;">{общий_срок_проекта_текст}</p>
+  </div>
+  <div class="page-footer">
+    <span>Стенд-Про &middot; КП № <span class="ph">{номер_кп}</span> &middot; <span class="ph">{заказчик}</span></span>
+    <span class="fnum">Стр. 22</span>
+  </div>
+</div>
+
+<!-- ============ 23. ГРАФИК: точки решений ============ -->
+<div class="page">
+  <h2 class="section-title">07 &middot; График проекта</h2>
+  <h3 class="doc-title">Точки, требующие решения заказчика</h3>
+  <table class="plain">
+    <tr><th>Дата</th><th>Что требуется от заказчика</th></tr>
+    <tr><td class="small mono ph">{точка_решения_1_дата}</td><td class="small ph">{точка_решения_1_текст}</td></tr>
+    <tr><td class="small mono ph">{точка_решения_2_дата}</td><td class="small ph">{точка_решения_2_текст}</td></tr>
+    <tr><td class="small mono ph">{точка_решения_3_дата}</td><td class="small ph">{точка_решения_3_текст}</td></tr>
+    <tr><td class="small mono ph">{точка_решения_4_дата}</td><td class="small ph">{точка_решения_4_текст}</td></tr>
+    <tr><td class="small mono ph">{точка_решения_5_дата}</td><td class="small ph">{точка_решения_5_текст}</td></tr>
+  </table>
+  <h4 style="font-size:9.5pt;margin-top:6mm;margin-bottom:2mm;">Как мы держим график</h4>
+  <p class="small ph">{текст_про_контроль_графика_менеджером}</p>
+  <div class="page-footer">
+    <span>Стенд-Про &middot; КП № <span class="ph">{номер_кп}</span> &middot; <span class="ph">{заказчик}</span></span>
+    <span class="fnum">Стр. 23</span>
+  </div>
+</div>
+
+<!-- ============ 24. ЧТО ВХОДИТ / НЕ ВХОДИТ ============ -->
+<div class="page">
+  <h2 class="section-title">08 &middot; Что входит и что не входит</h2>
+  <div class="grid2">
+    <div>
+      <h4 style="font-size:9.5pt;color:var(--ok);margin-bottom:2mm;">Входит в стоимость</h4>
+      <ul class="list-check">
+        <li class="ph">{входит_пункт_1}</li>
+        <li class="ph">{входит_пункт_2}</li>
+        <li class="ph">{входит_пункт_3}</li>
+        <li class="ph">{входит_пункт_4}</li>
+        <li class="ph">{входит_пункт_5}</li>
+        <li class="ph">{входит_пункт_6}</li>
+        <li class="ph">{входит_пункт_7}</li>
+        <li class="ph">{входит_пункт_8}</li>
+      </ul>
+    </div>
+    <div>
+      <h4 style="font-size:9.5pt;color:var(--warn);margin-bottom:2mm;">Не входит в стоимость</h4>
+      <ul class="list-check">
+        <li>Аренда выставочной площади у организатора</li>
+        <li>Электроподключение мощности к щиту стенда</li>
+        <li>Застройка соседних стендов</li>
+        <li>Хранение конструктива между выставками</li>
+        <li>Страхование экспонатов</li>
+        <li class="ph">{не_входит_доп_пункт}</li>
+      </ul>
+    </div>
+  </div>
+  <div class="box accentbox" style="margin-top:8mm;">
+    <p style="margin:0;" class="ph">{комментарий_к_разделу_что_не_входит}</p>
+  </div>
+  <div class="page-footer">
+    <span>Стенд-Про &middot; КП № <span class="ph">{номер_кп}</span> &middot; <span class="ph">{заказчик}</span></span>
+    <span class="fnum">Стр. 24</span>
+  </div>
+</div>
+
+<!-- ============ 25. УСЛОВИЯ: оплата ============ -->
+<div class="page">
+  <h2 class="section-title">09 &middot; Условия сотрудничества</h2>
+  <h3 class="doc-title">Порядок оплаты</h3>
+  <table class="plain">
+    <tr><th>Этап</th><th>Доля</th><th>Сумма, ₽</th><th>Срок</th></tr>
+    <tr><td class="small">1. Предоплата при подписании договора</td><td class="num small">50%</td><td class="num small ph">{сумма_этап_1}</td><td class="small ph">{срок_этап_1}</td></tr>
+    <tr><td class="small">2. По готовности конструктива к отгрузке</td><td class="num small">40%</td><td class="num small ph">{сумма_этап_2}</td><td class="small ph">{срок_этап_2}</td></tr>
+    <tr><td class="small">3. По факту монтажа и приёмки на площадке</td><td class="num small">10%</td><td class="num small ph">{сумма_этап_3}</td><td class="small ph">{срок_этап_3}</td></tr>
+    <tr class="subtotal"><td><b>Итого</b></td><td class="num"><b>100%</b></td><td class="num ph"><b>{итог_сметы}</b></td><td></td></tr>
+  </table>
+  <h4 style="font-size:9.5pt;margin-top:6mm;margin-bottom:2mm;">Сроки выполнения работ</h4>
+  <p class="small ph">{текст_общих_сроков_выполнения}</p>
+  <div class="page-footer">
+    <span>Стенд-Про &middot; КП № <span class="ph">{номер_кп}</span> &middot; <span class="ph">{заказчик}</span></span>
+    <span class="fnum">Стр. 25</span>
+  </div>
+</div>
+
+<!-- ============ 26. УСЛОВИЯ: гарантия ============ -->
+<div class="page">
+  <h2 class="section-title">09 &middot; Условия сотрудничества</h2>
+  <h3 class="doc-title">Гарантия</h3>
+  <p class="small ph">{текст_гарантийных_обязательств}</p>
+  <h3 class="doc-title" style="margin-top:7mm;">Порядок внесения изменений</h3>
+  <ul class="list-check">
+    <li class="ph">{порядок_изменений_пункт_1}</li>
+    <li class="ph">{порядок_изменений_пункт_2}</li>
+    <li class="ph">{порядок_изменений_пункт_3}</li>
+  </ul>
+  <h3 class="doc-title" style="margin-top:7mm;">Форс-мажор</h3>
+  <p class="small ph">{текст_форс_мажор}</p>
+  <div class="page-footer">
+    <span>Стенд-Про &middot; КП № <span class="ph">{номер_кп}</span> &middot; <span class="ph">{заказчик}</span></span>
+    <span class="fnum">Стр. 26</span>
+  </div>
+</div>
+
+<!-- ============ 27. ПОЧЕМУ МЫ ============ -->
+<div class="page">
+  <h2 class="section-title">10 &middot; Почему «Стенд-Про»</h2>
+  <div class="grid3" style="margin-top:4mm;">
+    <div class="kpi"><span class="n">14</span><span class="l">человек в команде</span></div>
+    <div class="kpi"><span class="n">300+</span><span class="l">реализованных проектов</span></div>
+    <div class="kpi"><span class="n">2</span><span class="l">собственных цеха</span></div>
+  </div>
+  <ul class="list-check" style="margin-top:6mm;">
+    <li><b>Собственное производство</b> &ndash; столярный и металлический участки, покрасочный цех. Мы не передаём изготовление конструктива на субподряд, поэтому контролируем сроки и качество на каждом этапе.</li>
+    <li><b>Единая ответственность</b> от дизайн-макета до демонтажа &ndash; заказчику не нужно координировать нескольких подрядчиков.</li>
+    <li><b>Монтажная бригада &ndash; те же специалисты</b>, что собирали конструктив на производстве, что снижает риск ошибок на площадке.</li>
+    <li><b>Более 300 реализованных проектов</b> выставочной застройки различного масштаба.</li>
+  </ul>
+  <div class="box" style="margin-top:6mm;">
+    <p class="small" style="margin:0;">Мы сознательно не приводим в этом документе имена клиентов и отзывы &ndash; часть наших проектов реализована по соглашениям о конфиденциальности. Портфолио и рекомендации предоставляются по запросу на очной встрече.</p>
+  </div>
+  <div class="page-footer">
+    <span>Стенд-Про &middot; КП № <span class="ph">{номер_кп}</span> &middot; <span class="ph">{заказчик}</span></span>
+    <span class="fnum">Стр. 27</span>
+  </div>
+</div>
+
+<!-- ============ 28. КОНТАКТЫ И ПОДПИСЬ ============ -->
+<div class="page">
+  <h2 class="section-title">11 &middot; Контакты и подпись</h2>
+  <h3 class="doc-title">Готовы приступить к проекту</h3>
+  <p class="ph">{текст_заключительного_абзаца}</p>
+  <div class="box" style="margin-top:5mm;">
+    <div class="grid2">
+      <div>
+        <div class="small muted" style="text-transform:uppercase;letter-spacing:0.06em;">Менеджер проекта</div>
+        <div style="font-weight:700;font-size:11.5pt;margin-top:1mm;" class="ph">{менеджер_имя}</div>
+        <div class="small ph" style="margin-top:1mm;">{менеджер_телефон}</div>
+        <div class="small ph">{менеджер_email}</div>
+      </div>
+      <div>
+        <div class="small muted" style="text-transform:uppercase;letter-spacing:0.06em;">Исполнитель</div>
+        <div style="font-weight:700;font-size:11.5pt;margin-top:1mm;">ООО «Стенд-Про»</div>
+        <div class="small" style="margin-top:1mm;">г. Москва, 5-й Донской проезд, 15, стр. 3</div>
+        <div class="small">ИНН 7726381045, ОГРН 1137746512398</div>
+      </div>
+    </div>
+  </div>
+  <div class="signature-block">
+    <div>
+      <div class="small muted">От исполнителя</div>
+      <div class="sig-line ph">{менеджер_имя}, менеджер проекта, ООО «Стенд-Про»</div>
+    </div>
+    <div>
+      <div class="small muted">От заказчика</div>
+      <div class="sig-line ph">___________________, «{заказчик}»</div>
+    </div>
+  </div>
+  <div style="flex:1;"></div>
+  <div class="divider"></div>
+  <p class="small muted" style="margin:0;">Стенд-Про &middot; выставочные конструкции под ключ &middot; собственное производство, Москва &middot; www.stend-pro.ru</p>
+  <div class="page-footer">
+    <span>Стенд-Про &middot; КП № <span class="ph">{номер_кп}</span> &middot; <span class="ph">{заказчик}</span></span>
+    <span class="fnum">Стр. 28</span>
+  </div>
+</div>
+
+</body>
+</html>

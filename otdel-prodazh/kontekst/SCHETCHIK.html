@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Счётчик расчётов</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Raleway:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-main: #F4EFE3;
+            --bg-card: #FBF7EC;
+            --text-primary: #1F1B16;
+            --text-secondary: #5A4F44;
+            --border-color: rgba(38, 28, 20, 0.12);
+            --result-bg: #1F1B16;
+            --result-text: #D9FC67;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-main: #0A0806;
+                --bg-card: #1A1410;
+                --text-primary: #F4EFE3;
+                --text-secondary: #A39A8E;
+                --border-color: rgba(244, 239, 227, 0.12);
+                --result-bg: #2A2418;
+                --result-text: #D9FC67;
+            }
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            font-family: 'Raleway', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 40px;
+            width: 100%;
+            max-width: 600px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        h1 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 40px;
+            text-align: center;
+            letter-spacing: -0.5px;
+        }
+
+        .form-group {
+            margin-bottom: 32px;
+        }
+
+        label {
+            display: block;
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 16px;
+            font-size: 32px;
+            font-family: 'JetBrains Mono', monospace;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            background-color: transparent;
+            color: var(--text-primary);
+            transition: border-color 0.2s, background-color 0.15s;
+        }
+
+        input[type="number"]:focus {
+            outline: none;
+            border-color: var(--text-secondary);
+            background-color: var(--bg-main);
+        }
+
+        input[type="number"]::placeholder {
+            color: var(--text-secondary);
+            opacity: 0.5;
+        }
+
+        .result-group {
+            background-color: var(--result-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            padding: 24px;
+            margin-top: 32px;
+            margin-bottom: 16px;
+        }
+
+        .result-label {
+            font-size: 14px;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .result-value {
+            font-size: 64px;
+            font-weight: 600;
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--result-text);
+            line-height: 1;
+            word-break: break-word;
+        }
+
+        .result-sub {
+            font-size: 18px;
+            color: var(--result-text);
+            margin-top: 16px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .result-sub-label {
+            font-size: 12px;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 12px;
+            display: block;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        button {
+            flex: 1;
+            padding: 14px 24px;
+            font-size: 16px;
+            font-weight: 600;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            background-color: transparent;
+            color: var(--text-primary);
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: 'Raleway', sans-serif;
+        }
+
+        button:hover {
+            border-color: var(--text-secondary);
+            background-color: var(--bg-main);
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+
+        .input-hint {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-top: 6px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Расчёт стоимости</h1>
+
+        <div class="form-group">
+            <label for="requests">Запросов на расчёт в месяц</label>
+            <input type="number" id="requests" placeholder="28" min="0" step="1">
+            <span class="input-hint">пример: 28</span>
+        </div>
+
+        <div class="form-group">
+            <label for="hours">Часов на одно предложение</label>
+            <input type="number" id="hours" placeholder="3" min="0" step="0.5">
+            <span class="input-hint">пример: 3</span>
+        </div>
+
+        <div class="form-group">
+            <label for="rate">Стоимость часа, ₽</label>
+            <input type="number" id="rate" placeholder="5560" min="0" step="100">
+            <span class="input-hint">пример: 5 560</span>
+        </div>
+
+        <div class="result-group">
+            <span class="result-label">Итог в месяц, ₽</span>
+            <div class="result-value" id="monthlyResult">—</div>
+
+            <span class="result-sub-label">В год, ₽</span>
+            <div class="result-sub" id="yearlyResult">—</div>
+        </div>
+
+        <div class="button-group">
+            <button onclick="resetForm()">Сбросить</button>
+        </div>
+    </div>
+
+    <script>
+        const requestsInput = document.getElementById('requests');
+        const hoursInput = document.getElementById('hours');
+        const rateInput = document.getElementById('rate');
+        const monthlyResult = document.getElementById('monthlyResult');
+        const yearlyResult = document.getElementById('yearlyResult');
+
+        function formatNumber(num) {
+            if (isNaN(num) || num === '') {
+                return '—';
+            }
+            return Math.round(num).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+        }
+
+        function calculate() {
+            const requests = parseFloat(requestsInput.value) || 0;
+            const hours = parseFloat(hoursInput.value) || 0;
+            const rate = parseFloat(rateInput.value) || 0;
+
+            const monthly = requests * hours * rate;
+            const yearly = monthly * 12;
+
+            monthlyResult.textContent = formatNumber(monthly);
+            yearlyResult.textContent = formatNumber(yearly);
+
+            if (monthly > 0) {
+                monthlyResult.style.opacity = '1';
+                yearlyResult.style.opacity = '1';
+            }
+        }
+
+        function resetForm() {
+            requestsInput.value = '';
+            hoursInput.value = '';
+            rateInput.value = '';
+            monthlyResult.textContent = '—';
+            yearlyResult.textContent = '—';
+            requestsInput.focus();
+        }
+
+        requestsInput.addEventListener('input', calculate);
+        hoursInput.addEventListener('input', calculate);
+        rateInput.addEventListener('input', calculate);
+
+        requestsInput.focus();
+    </script>
+</body>
+</html>

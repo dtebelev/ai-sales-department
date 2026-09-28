@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Бриф на застройку стенда</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F4EFE3;
+    --card:#FBF7EC;
+    --ink:#1F1B16;
+    --ink-soft:#5A4F44;
+    --line:rgba(38,28,20,.12);
+    --green:#3F7A4B;
+    --wine:#972E2E;
+    --blue:#2F5FA8;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Raleway',sans-serif;
+    font-size:16px;
+    line-height:1.55;
+    display:flex;
+    justify-content:center;
+    padding:40px 16px;
+  }
+  .sheet{
+    width:100%;
+    max-width:780px;
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:14px;
+    box-shadow:0 18px 40px rgba(38,28,20,.08);
+    padding:36px 40px 44px;
+  }
+  .kicker{
+    font-family:'JetBrains Mono',monospace;
+    font-size:13px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin-bottom:10px;
+  }
+  h1{
+    font-size:28px;
+    margin:0 0 6px;
+    font-weight:700;
+  }
+  .subtitle{
+    color:var(--ink-soft);
+    font-size:16px;
+    margin-bottom:26px;
+  }
+  .meta-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px 24px;
+    background:rgba(38,28,20,.04);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:16px 20px;
+    margin-bottom:30px;
+  }
+  .meta-item .k{
+    font-family:'JetBrains Mono',monospace;
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:.05em;
+    color:var(--ink-soft);
+  }
+  .meta-item .v{
+    font-weight:700;
+    font-size:18px;
+    margin-top:2px;
+  }
+  h2{
+    font-size:20px;
+    margin:34px 0 14px;
+    padding-bottom:8px;
+    border-bottom:2px solid var(--line);
+  }
+  table{
+    width:100%;
+    border-collapse:collapse;
+    margin-bottom:8px;
+  }
+  th,td{
+    text-align:left;
+    padding:12px 10px;
+    border-bottom:1px solid var(--line);
+    font-size:16px;
+    vertical-align:top;
+  }
+  th{
+    font-family:'JetBrains Mono',monospace;
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:.04em;
+    color:var(--ink-soft);
+    border-bottom:2px solid var(--line);
+  }
+  td.zone{
+    font-weight:700;
+  }
+  td.area{
+    font-weight:700;
+    font-size:18px;
+    color:var(--blue);
+    white-space:nowrap;
+  }
+  ul{
+    margin:0;
+    padding-left:20px;
+  }
+  li{
+    margin-bottom:8px;
+  }
+  .swatches{
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+    margin-top:12px;
+  }
+  .swatch{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    background:rgba(38,28,20,.04);
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:8px 14px;
+    font-family:'JetBrains Mono',monospace;
+    font-size:13px;
+  }
+  .dot{
+    width:18px;
+    height:18px;
+    border-radius:50%;
+    border:1px solid var(--line);
+    flex:none;
+  }
+  .dot.green{background:var(--green);}
+  .dot.wine{background:var(--wine);}
+  .dot.ink{background:var(--ink);}
+  .dot.cream{background:#FBF7EC;}
+  .two-col{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:26px;
+  }
+  .card-mini{
+    background:rgba(38,28,20,.04);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:16px 18px;
+  }
+  .card-mini h3{
+    margin:0 0 10px;
+    font-size:15px;
+    font-family:'JetBrains Mono',monospace;
+    text-transform:uppercase;
+    letter-spacing:.04em;
+    color:var(--ink-soft);
+  }
+  .note-box{
+    margin-top:30px;
+    background:rgba(63,122,75,.08);
+    border:1px solid rgba(63,122,75,.3);
+    border-radius:10px;
+    padding:16px 20px;
+    font-size:16px;
+  }
+  .note-box .k{
+    font-weight:700;
+    color:var(--green);
+  }
+  strong{font-weight:700;}
+  .footer-doc{
+    margin-top:34px;
+    padding-top:16px;
+    border-top:1px dashed var(--line);
+    font-size:13px;
+    font-family:'JetBrains Mono',monospace;
+    color:var(--ink-soft);
+    display:flex;
+    justify-content:space-between;
+  }
+
+  @media print{
+    body{background:#fff;padding:0;display:block;}
+    .sheet{max-width:780px;width:780px;margin:0 auto;box-shadow:none;border:none;}
+    h2{break-after:avoid;}
+    table{break-inside:avoid;}
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+  <div class="kicker">Приложение к письму · бриф на застройку</div>
+  <h1>Бриф на застройку выставочного стенда</h1>
+  <div class="subtitle">ООО «Альтерра Девелопмент» · МВЦ Северный, 12–15 марта 2027</div>
+
+  <div class="meta-grid">
+    <div class="meta-item">
+      <div class="k">Площадь стенда</div>
+      <div class="v">120 квадратных метров</div>
+    </div>
+    <div class="meta-item">
+      <div class="k">Тип стенда</div>
+      <div class="v">Угловой, две открытые стороны</div>
+    </div>
+    <div class="meta-item">
+      <div class="k">Монтаж</div>
+      <div class="v">с 9 по 11 марта 2027</div>
+    </div>
+    <div class="meta-item">
+      <div class="k">Демонтаж</div>
+      <div class="v">15–16 марта 2027</div>
+    </div>
+    <div class="meta-item">
+      <div class="k">Бюджет</div>
+      <div class="v">до 5 000 000 ₽</div>
+    </div>
+    <div class="meta-item">
+      <div class="k">Заказчик</div>
+      <div class="v">Альтерра Девелопмент</div>
+    </div>
+  </div>
+
+  <h2>Зонирование</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Зона</th>
+        <th>Площадь</th>
+        <th>Требования</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="zone">Переговорная</td>
+        <td class="area">18 м²</td>
+        <td>Закрытая, на <strong>6 человек</strong>, звукоизоляция от общего шума стенда, стол и экран для презентаций</td>
+      </tr>
+      <tr>
+        <td class="zone">Зона с макетом ЖК</td>
+        <td class="area">35 м²</td>
+        <td>Центральное место на стенде, хороший обзор с обеих открытых сторон, подсветка макета сверху</td>
+      </tr>
+      <tr>
+        <td class="zone">Стойка ресепшн</td>
+        <td class="area">8 м²</td>
+        <td>У главного входа, место под брендинг и стойку с буклетами, 1:2 сотрудника</td>
+      </tr>
+      <tr>
+        <td class="zone">Открытая зона общения</td>
+        <td class="area">45 м²</td>
+        <td>Свободная планировка, барные стойки, места для переговоров стоя</td>
+      </tr>
+      <tr>
+        <td class="zone">Подсобка</td>
+        <td class="area">14 м²</td>
+        <td>Хранение материалов, личных вещей, верхней одежды, доступ только для персонала</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Материалы и стиль</h2>
+  <div class="two-col">
+    <div class="card-mini">
+      <h3>Материалы</h3>
+      <ul>
+        <li><strong>Дерево</strong> (светлые породы) для пола и акцентных панелей</li>
+        <li><strong>Стекло</strong> для перегородок переговорной, максимум прозрачности</li>
+        <li>Металл только в мелких деталях, без индустриального акцента</li>
+      </ul>
+    </div>
+    <div class="card-mini">
+      <h3>Освещение и настроение</h3>
+      <ul>
+        <li>Много естественного и рассеянного света</li>
+        <li>Акцентная подсветка зоны с макетом</li>
+        <li>Общий вид: современный, лёгкий, без перегруза деталями</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Фирменные цвета</h2>
+  <div class="swatches">
+    <div class="swatch"><span class="dot green"></span> Зелёный, основной</div>
+    <div class="swatch"><span class="dot wine"></span> Винный, акцент</div>
+    <div class="swatch"><span class="dot cream"></span> Кремовый, фон</div>
+    <div class="swatch"><span class="dot ink"></span> Тёмно-графитовый, текст и рамы</div>
+  </div>
+
+  <h2>Референсы</h2>
+  <p>Ориентируемся на стенды в стиле современных шоурумов недвижимости: открытые пространства, минимум перегородок, акцент на макете и живом общении. Похожий подход видели у скандинавских девелоперов на прошлых выставках, обсудим на созвоне, если нужны точные примеры.</p>
+
+  <h2>Что привозим сами</h2>
+  <div class="two-col">
+    <div class="card-mini">
+      <h3>Макет</h3>
+      <ul>
+        <li>Масштабный макет жилого комплекса, готовый, привозим отдельной машиной</li>
+        <li>Нужен только подиум и подсветка от застройщика стенда</li>
+      </ul>
+    </div>
+    <div class="card-mini">
+      <h3>Мебель и брендинг</h3>
+      <ul>
+        <li>Мягкая мебель для зоны общения</li>
+        <li>Брендированные баннеры и стойки с буклетами</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="note-box">
+    <span class="k">Важно:</span> второй этаж на стенде рассматриваем как один из вариантов, но не как обязательное требование. Готовы обсудить оба варианта в предложении.
+  </div>
+
+  <div class="footer-doc">
+    <span>Бриф на застройку стенда · Альтерра Девелопмент</span>
+    <span>стр. 1 из 1</span>
+  </div>
+</div>
+</body>
+</html>

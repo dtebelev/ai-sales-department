@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>План места на выставке</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F4EFE3;
+    --card:#FBF7EC;
+    --ink:#1F1B16;
+    --ink-soft:#5A4F44;
+    --line:rgba(38,28,20,.12);
+    --green:#3F7A4B;
+    --wine:#972E2E;
+    --blue:#2F5FA8;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Raleway',sans-serif;
+    font-size:16px;
+    line-height:1.5;
+    display:flex;
+    justify-content:center;
+    padding:40px 16px;
+  }
+  .sheet{
+    width:100%;
+    max-width:780px;
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:14px;
+    box-shadow:0 18px 40px rgba(38,28,20,.08);
+    padding:34px 38px 40px;
+  }
+  .kicker{
+    font-family:'JetBrains Mono',monospace;
+    font-size:13px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin-bottom:8px;
+  }
+  h1{
+    font-size:26px;
+    margin:0 0 4px;
+    font-weight:700;
+  }
+  .subtitle{
+    color:var(--ink-soft);
+    font-size:16px;
+    margin-bottom:22px;
+  }
+  .meta-strip{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-bottom:22px;
+  }
+  .pill{
+    font-family:'JetBrains Mono',monospace;
+    font-size:13px;
+    background:rgba(38,28,20,.05);
+    border:1px solid var(--line);
+    border-radius:999px;
+    padding:6px 14px;
+    color:var(--ink-soft);
+  }
+  .pill strong{
+    color:var(--ink);
+    font-weight:700;
+  }
+  .plan-frame{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:14px;
+    margin-bottom:18px;
+  }
+  svg{
+    display:block;
+    width:100%;
+    height:auto;
+  }
+  .legend{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px 22px;
+    margin-top:20px;
+  }
+  .legend-item{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:15px;
+  }
+  .swatch{
+    width:20px;
+    height:14px;
+    border-radius:3px;
+    flex:none;
+    border:1px solid var(--line);
+  }
+  .swatch.own{background:rgba(47,95,168,.18);border-color:var(--blue);}
+  .swatch.nb{background:rgba(38,28,20,.08);}
+  .swatch.open{background:transparent;border:2px dashed var(--green);}
+  .swatch.power{background:var(--wine);}
+  .provenance{
+    margin-top:26px;
+    padding-top:16px;
+    border-top:1px dashed var(--line);
+    font-size:14px;
+    color:var(--ink-soft);
+    text-align:center;
+    font-style:italic;
+  }
+
+  @media print{
+    body{background:#fff;padding:0;display:block;}
+    .sheet{max-width:780px;width:780px;margin:0 auto;box-shadow:none;border:none;}
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+  <div class="kicker">Приложение к письму организатора</div>
+  <h1>Схема размещения стенда D:214</h1>
+  <div class="subtitle">Международная выставка недвижимости и девелопмента, Крокус Экспо</div>
+
+  <div class="meta-strip">
+    <div class="pill">Павильон: <strong>3</strong></div>
+    <div class="pill">Зал: <strong>4</strong></div>
+    <div class="pill">Стенд: <strong>D:214</strong></div>
+    <div class="pill">Размер: <strong>12 × 10 м</strong></div>
+    <div class="pill">Площадь: <strong>120 м²</strong></div>
+  </div>
+
+  <div class="plan-frame">
+    <svg viewBox="0 0 820 620" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Схема размещения стенда D-214, размер 12 на 10 метров, две открытые стороны, соседние стенды D-212, D-216, D-215, точка подключения электричества, проходы между стендами">
+      <defs>
+        <marker id="arrow" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+          <path d="M0,0 L8,4 L0,8 Z" fill="#5A4F44"/>
+        </marker>
+      </defs>
+
+      <rect x="0" y="0" width="820" height="620" fill="#FBF7EC"/>
+
+      <!-- aisle labels -->
+      <text x="410" y="34" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="14" fill="#5A4F44" letter-spacing="1">ПРОХОД МЕЖДУ РЯДАМИ</text>
+      <rect x="150" y="44" width="520" height="34" fill="rgba(38,28,20,0.05)" stroke="rgba(38,28,20,0.12)" stroke-dasharray="6 5"/>
+
+      <!-- neighbor stand top-left: D-212 -->
+      <rect x="150" y="100" width="150" height="110" fill="rgba(38,28,20,0.08)" stroke="rgba(38,28,20,0.25)"/>
+      <text x="225" y="150" text-anchor="middle" font-family="Raleway, sans-serif" font-size="16" font-weight="700" fill="#1F1B16">Стенд D-212</text>
+      <text x="225" y="172" text-anchor="middle" font-family="Raleway, sans-serif" font-size="13" fill="#5A4F44">сосед слева</text>
+
+      <!-- neighbor stand top-right: D-216 -->
+      <rect x="520" y="100" width="150" height="110" fill="rgba(38,28,20,0.08)" stroke="rgba(38,28,20,0.25)"/>
+      <text x="595" y="150" text-anchor="middle" font-family="Raleway, sans-serif" font-size="16" font-weight="700" fill="#1F1B16">Стенд D-216</text>
+      <text x="595" y="172" text-anchor="middle" font-family="Raleway, sans-serif" font-size="13" fill="#5A4F44">сосед сверху</text>
+
+      <!-- vertical aisle left -->
+      <rect x="300" y="100" width="34" height="110" fill="rgba(38,28,20,0.05)" stroke="rgba(38,28,20,0.12)" stroke-dasharray="6 5"/>
+      <!-- vertical aisle right -->
+      <rect x="486" y="100" width="34" height="110" fill="rgba(38,28,20,0.05)" stroke="rgba(38,28,20,0.12)" stroke-dasharray="6 5"/>
+
+      <!-- OUR STAND -->
+      <rect x="150" y="230" width="370" height="300" fill="rgba(47,95,168,0.14)" stroke="#2F5FA8" stroke-width="3"/>
+
+      <!-- open side markers: top and right of our stand are the two open sides -->
+      <line x1="150" y1="224" x2="520" y2="224" stroke="#3F7A4B" stroke-width="4" stroke-dasharray="10 6"/>
+      <text x="335" y="216" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="13" fill="#3F7A4B" font-weight="700">ОТКРЫТАЯ СТОРОНА</text>
+
+      <line x1="526" y1="230" x2="526" y2="530" stroke="#3F7A4B" stroke-width="4" stroke-dasharray="10 6"/>
+      <text x="600" y="384" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="13" fill="#3F7A4B" font-weight="700" transform="rotate(90 600 384)">ОТКРЫТАЯ СТОРОНА</text>
+
+      <!-- stand label -->
+      <text x="335" y="360" text-anchor="middle" font-family="Raleway, sans-serif" font-size="28" font-weight="700" fill="#1F1B16">D:214</text>
+      <text x="335" y="388" text-anchor="middle" font-family="Raleway, sans-serif" font-size="15" fill="#5A4F44">Альтерра Девелопмент</text>
+      <text x="335" y="412" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="14" fill="#2F5FA8" font-weight="700">120 м² · угловой</text>
+
+      <!-- width dimension line (12 m) -->
+      <line x1="150" y1="555" x2="520" y2="555" stroke="#5A4F44" stroke-width="1.5" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+      <text x="335" y="576" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="15" font-weight="700" fill="#1F1B16">12 м</text>
+
+      <!-- height dimension line (10 m) -->
+      <line x1="125" y1="230" x2="125" y2="530" stroke="#5A4F44" stroke-width="1.5" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+      <text x="98" y="384" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="15" font-weight="700" fill="#1F1B16" transform="rotate(-90 98 384)">10 м</text>
+
+      <!-- neighbor stand bottom: D-215 -->
+      <rect x="150" y="546" width="370" height="0" opacity="0"/>
+      <rect x="560" y="230" width="140" height="300" fill="rgba(38,28,20,0.08)" stroke="rgba(38,28,20,0.25)"/>
+      <text x="630" y="370" text-anchor="middle" font-family="Raleway, sans-serif" font-size="16" font-weight="700" fill="#1F1B16">Стенд</text>
+      <text x="630" y="392" text-anchor="middle" font-family="Raleway, sans-serif" font-size="16" font-weight="700" fill="#1F1B16">D-215</text>
+      <text x="630" y="414" text-anchor="middle" font-family="Raleway, sans-serif" font-size="13" fill="#5A4F44">сосед справа</text>
+
+      <!-- power connection point -->
+      <circle cx="230" cy="500" r="12" fill="#972E2E"/>
+      <text x="230" y="504" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700" fill="#FBF7EC">⚡</text>
+      <text x="255" y="496" font-family="Raleway, sans-serif" font-size="13" fill="#1F1B16">Точка подключения</text>
+      <text x="255" y="514" font-family="Raleway, sans-serif" font-size="13" fill="#5A4F44">электричества, 380В / 25 кВт</text>
+
+      <!-- lower aisle -->
+      <text x="410" y="586" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" fill="#5A4F44" letter-spacing="1">ГЛАВНЫЙ ПРОХОД ЗАЛА 4</text>
+    </svg>
+  </div>
+
+  <div class="legend">
+    <div class="legend-item"><span class="swatch own"></span> Наш стенд D:214, 120 м²</div>
+    <div class="legend-item"><span class="swatch nb"></span> Соседние стенды</div>
+    <div class="legend-item"><span class="swatch open"></span> Открытая сторона (2 шт.)</div>
+    <div class="legend-item"><span class="swatch power"></span> Точка подключения электричества</div>
+  </div>
+
+  <div class="provenance">План предоставлен организатором выставки</div>
+</div>
+</body>
+</html>

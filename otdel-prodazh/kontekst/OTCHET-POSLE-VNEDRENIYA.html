@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Отдел продаж — три месяца после</title>
+<style>
+:root{--surface:#FCFCFB;--panel:#FFFFFF;--line:#DFDFDA;--line-soft:#ECECE7;
+  --ink:#1B1B19;--ink-2:#4A4A46;--ink-3:#7B7B74;
+  --was:#8A8A82;--now:#2563EB;--s2:#D97706;--bad:#B42318;--ok:#067647;--head:#F4F4F0}
+*{box-sizing:border-box}
+body{margin:0;background:var(--surface);color:var(--ink);
+  font:14px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif;
+  -webkit-font-smoothing:antialiased}
+.doc{max-width:1120px;margin:0 auto;padding:0 28px 80px}
+@media(max-width:700px){.doc{padding:0 16px 60px}}
+.top{border-bottom:2px solid var(--ink);padding:22px 0 14px;margin-bottom:26px;
+  display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap}
+.org{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);font-weight:700}
+.title{font-size:27px;font-weight:700;letter-spacing:-.02em;margin:6px 0 0}
+.sub{color:var(--ink-2);margin-top:4px;font-size:13.5px}
+.stamp{font-size:11.5px;color:var(--ink-3);text-align:right;line-height:1.7}
+.stamp b{color:var(--ink-2)}
+h2{font-size:15px;font-weight:700;margin:38px 0 12px;padding-bottom:7px;border-bottom:1px solid var(--line)}
+h2 span{color:var(--ink-3);font-weight:600;font-size:12px;margin-left:8px}
+p{margin:0 0 12px;max-width:88ch;color:var(--ink-2)}
+.hero{border:1px solid var(--line);background:var(--panel);padding:22px 24px;margin:0 0 6px;
+  display:flex;gap:34px;flex-wrap:wrap;align-items:flex-end}
+.hero .big{font-size:44px;font-weight:700;letter-spacing:-.03em;color:var(--ok);
+  font-variant-numeric:tabular-nums;line-height:1}
+.hero .lbl{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);
+  font-weight:600;margin-bottom:8px}
+.hero .side{font-size:13px;color:var(--ink-2);max-width:42ch}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));gap:1px;
+  background:var(--line);border:1px solid var(--line)}
+.kpi{background:var(--panel);padding:14px 16px}
+.kpi .k{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);font-weight:600}
+.kpi .v{font-size:25px;font-weight:700;margin-top:6px;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.kpi .v.good{color:var(--ok)}
+.kpi .d{font-size:12px;color:var(--ink-3);margin-top:3px}
+.kpi .d s{color:var(--was)}
+table{border-collapse:collapse;width:100%;font-size:13.5px;background:var(--panel);
+  border:1px solid var(--line);margin:12px 0}
+th,td{padding:9px 13px;text-align:left;border-bottom:1px solid var(--line-soft)}
+th{background:var(--head);font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;
+  color:var(--ink-2);font-weight:700}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+td.was{color:var(--was)}
+td.now{font-weight:700}
+td.delta{color:var(--ok);font-weight:600}
+tr:last-child td{border-bottom:0}
+tfoot td{font-weight:700;background:var(--head);border-top:1px solid var(--line)}
+.panel{background:var(--panel);border:1px solid var(--line);padding:16px 18px 10px;margin:14px 0}
+.ptitle{font-size:13.5px;font-weight:700;margin-bottom:2px}
+.pnote{font-size:12px;color:var(--ink-3);margin-bottom:12px}
+.legend{display:flex;gap:16px;flex-wrap:wrap;margin:0 0 10px;font-size:12.5px;color:var(--ink-2)}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+.callout{border:1px solid var(--line);border-left:3px solid var(--ok);background:var(--panel);
+  padding:13px 16px;margin:16px 0}
+.callout.warn{border-left-color:var(--s2)}
+.callout h4{margin:0 0 6px;font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-2)}
+.callout p{margin:0;color:var(--ink)}
+.calc{font-variant-numeric:tabular-nums;font-size:15px;line-height:2;margin:6px 0;color:var(--ink)}
+.foot{margin-top:40px;padding-top:14px;border-top:1px solid var(--line);font-size:11.5px;color:var(--ink-3)}
+svg{display:block;width:100%;height:auto;overflow:visible}
+.tip{position:fixed;pointer-events:none;background:#1B1B19;color:#fff;font-size:12px;
+  padding:6px 9px;border-radius:4px;opacity:0;transition:opacity .1s;z-index:9;white-space:nowrap}
+</style>
+</head>
+<body>
+<div class="doc">
+
+<div class="top">
+  <div>
+    <div class="org">СТЕНД-ПРО · производство выставочных стендов</div>
+    <h1 class="title">Отдел продаж: три месяца после</h1>
+    <div class="sub">Что изменилось после запуска команды цифровых сотрудников на подготовке КП</div>
+  </div>
+  <div class="stamp">
+    Период: <b>01.04.2026 — 30.06.2026</b><br>
+    Сравнение: те же месяцы 2025 года<br>
+    Подготовлен: <b>06.07.2026</b> · внутренний документ
+  </div>
+</div>
+
+<div class="hero">
+  <div>
+    <div class="lbl">Экономия в месяц</div>
+    <div class="big">514 000 ₽</div>
+  </div>
+  <div>
+    <div class="lbl">В год</div>
+    <div class="big">6,2 млн ₽</div>
+  </div>
+  <div class="side">Из них 389 000 ₽ это возвращённое время собственника,
+  125 000 ₽ это расчётчик, которого не пришлось нанимать в сезон.</div>
+</div>
+
+<h2>Ключевые показатели <span>второй квартал, к тому же кварталу 2025</span></h2>
+<div class="kpis">
+  <div class="kpi"><div class="k">Одно сложное КП</div><div class="v good">30 мин</div><div class="d"><s>было 3 часа</s> · в 6 раз быстрее</div></div>
+  <div class="kpi"><div class="k">Часов собственника в месяц</div><div class="v good">14</div><div class="d"><s>было 84</s> · вернулось 70</div></div>
+  <div class="kpi"><div class="k">Средний срок ответа</div><div class="v good">0,6 дн</div><div class="d"><s>было 3,4</s> · цель 1 день выполнена</div></div>
+  <div class="kpi"><div class="k">КП от числа запросов</div><div class="v good">98%</div><div class="d"><s>было 80%</s></div></div>
+  <div class="kpi"><div class="k">Остановок с вопросом</div><div class="v">37</div><div class="d">ошибок во входных данных, которые раньше не ловили</div></div>
+  <div class="kpi"><div class="k">Ошибок в отправленных КП</div><div class="v good">0</div><div class="d"><s>было 4 за квартал</s></div></div>
+</div>
+
+<h2>Было и стало</h2>
+<table>
+  <thead><tr><th>Показатель</th><th class="n">Было, 2 кв. 2025</th><th class="n">Стало, 2 кв. 2026</th><th class="n">Разница</th></tr></thead>
+  <tbody>
+    <tr><td>Запросов на расчёт</td><td class="n was">62</td><td class="n now">64</td><td class="n">поток тот же</td></tr>
+    <tr><td>Отправлено КП</td><td class="n was">49</td><td class="n now">63</td><td class="n delta">+14</td></tr>
+    <tr><td>Часов собственника на КП</td><td class="n was">252</td><td class="n now">42</td><td class="n delta">−210</td></tr>
+    <tr><td>Стоимость этого времени</td><td class="n was">1 401 000 ₽</td><td class="n now">234 000 ₽</td><td class="n delta">−1 167 000 ₽</td></tr>
+    <tr><td>Средний срок ответа</td><td class="n was">3,9 дн</td><td class="n now">0,6 дн</td><td class="n delta">−3,3 дн</td></tr>
+    <tr><td>Запросов потеряно из-за срока</td><td class="n was">9</td><td class="n now">0</td><td class="n delta">−9</td></tr>
+    <tr><td>Подписано договоров</td><td class="n was">15</td><td class="n now">19</td><td class="n delta">+4</td></tr>
+  </tbody>
+  <tfoot><tr><td>Выручка по подписанным</td><td class="n">43,5 млн ₽</td><td class="n">55,1 млн ₽</td><td class="n delta">+11,6 млн ₽</td></tr></tfoot>
+</table>
+
+<div class="callout warn">
+  <h4>Честно про эту таблицу</h4>
+  <p>Твёрдые цифры здесь только часы, сроки и число отправленных КП: они берутся из журнала команды
+  и выгрузки CRM. <b>Рост выручки на 11,6 млн за квартал не считаем заслугой одной команды</b>:
+  часть договоров пришла бы и так. Достоверно то, что <b>ни один запрос за квартал не потерялся
+  из-за срока ответа</b>, а раньше таких было девять.</p>
+</div>
+
+<h2>Часы собственника на КП, помесячно</h2>
+<div class="panel">
+  <div class="ptitle">Серые столбцы — 2025 год, синие — после запуска команды</div>
+  <div class="pnote">Апрель это месяц запуска: часть времени ушла на настройку, поэтому экономия неполная.</div>
+  <div class="legend">
+    <span><i style="background:#8A8A82"></i>2025, до команды</span>
+    <span><i style="background:#2563EB"></i>2026, после</span>
+  </div>
+  <svg id="c1" viewBox="0 0 900 270" role="img" aria-label="Часы собственника до и после по месяцам"></svg>
+</div>
+
+<h2>Куда делись 70 часов</h2>
+<table>
+  <thead><tr><th>Что делал собственник</th><th class="n">Было, ч/мес</th><th class="n">Стало, ч/мес</th><th>Кто делает теперь</th></tr></thead>
+  <tbody>
+    <tr><td>Разбор письма клиента, сбор вводных</td><td class="n was">11</td><td class="n now">0</td><td>Приёмщик, останавливается и спрашивает сам</td></tr>
+    <tr><td>Поиск похожих проектов в архиве</td><td class="n was">8</td><td class="n now">0</td><td>Подборщик референсов</td></tr>
+    <tr><td>Расчёт сметы по прайсу</td><td class="n was">38</td><td class="n now">0</td><td>Сметчик по матрице цен</td></tr>
+    <tr><td>Оформление документа</td><td class="n was">14</td><td class="n now">0</td><td>Составитель КП</td></tr>
+    <tr><td>Проверка перед отправкой</td><td class="n was">9</td><td class="n now">6</td><td>Контролёр, человек утверждает</td></tr>
+    <tr><td>Ответы на вопросы команды</td><td class="n was">0</td><td class="n now">5</td><td>новая работа, появилась вместе с остановками</td></tr>
+    <tr><td>Решения по нестандарту и скидкам</td><td class="n was">4</td><td class="n now">3</td><td>собственник, как и раньше</td></tr>
+  </tbody>
+  <tfoot><tr><td>Итого</td><td class="n">84</td><td class="n">14</td><td>вернулось 70 часов в месяц</td></tr></tfoot>
+</table>
+
+<div class="callout">
+  <h4>Как считаем деньги</h4>
+  <div class="calc">
+    70 ч × 5 560 ₽ = <b>389 000 ₽</b> в месяц, возвращённое время собственника<br>
+    + <b>125 000 ₽</b> в месяц, расчётчик, которого не наняли в сезон<br>
+    = <b>514 000 ₽</b> в месяц, <b>6,2 млн ₽</b> в год
+  </div>
+</div>
+
+<h2>Что изменилось не в деньгах</h2>
+<table>
+  <thead><tr><th>Было</th><th>Стало</th></tr></thead>
+  <tbody>
+    <tr><td class="was">Правила расчёта жили в голове собственника</td><td class="now">Лежат в файлах, их можно передать любому сотруднику</td></tr>
+    <tr><td class="was">Архив проектов был в переписке</td><td class="now">Таблица на 68 проектов, план и факт по срокам</td></tr>
+    <tr><td class="was">Загрузка цеха была в тетради у начальника производства</td><td class="now">Календарь, с которым сверяется каждое КП</td></tr>
+    <tr><td class="was">Ошибку в сроках находили за неделю до выставки</td><td class="now">Находят на этапе расчёта, за три месяца</td></tr>
+    <tr><td class="was">Неполные вводные дособирали по ходу</td><td class="now">37 остановок с вопросом за квартал, до расчёта</td></tr>
+  </tbody>
+</table>
+
+<div class="foot">
+  Документ подготовлен для внутреннего обсуждения. Данные обезличены. Часы и сроки взяты из журнала
+  команды и выгрузки CRM за период. Оценка стоимости времени собственника модельная: ставка 5 560 ₽/час
+  при доходе 890 000 ₽ в месяц и 160 рабочих часах.
+</div>
+
+</div>
+<div class="tip" id="tip"></div>
+<script>
+const M=["Апр","Май","Июн"],WAS=[100,80,54],NOW=[22,12,8];
+const tip=document.getElementById('tip'),NS='http://www.w3.org/2000/svg';
+function mk(t,a){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);return e;}
+function txt(p,x,y,s,o={}){const e=mk('text',{x,y,fill:o.fill||'#7B7B74','font-size':o.size||11,
+  'text-anchor':o.anchor||'middle','font-weight':o.w||400,'font-family':'-apple-system,Segoe UI,Arial'});
+  e.textContent=s;p.appendChild(e);return e;}
+function hov(el,t){el.addEventListener('mousemove',e=>{tip.textContent=t;tip.style.opacity=1;
+  tip.style.left=(e.clientX+12)+'px';tip.style.top=(e.clientY-30)+'px';});
+  el.addEventListener('mouseleave',()=>tip.style.opacity=0);}
+(function(){
+  const s=document.getElementById('c1'),x0=54,x1=860,y0=16,y1=225,max=110;
+  for(let v=0;v<=max;v+=22){const y=y1-(v/max)*(y1-y0);
+    s.appendChild(mk('line',{x1:x0,x2:x1,y1:y,y2:y,stroke:'#ECECE7','stroke-width':1}));
+    txt(s,x0-9,y+4,v+' ч',{anchor:'end'});}
+  const bw=(x1-x0)/3;
+  WAS.forEach((v,i)=>{
+    const cx=x0+bw*i+bw/2;
+    [[WAS[i],'#8A8A82',-46,'до'],[NOW[i],'#2563EB',6,'после']].forEach(([val,col,off,nm])=>{
+      const h=(val/max)*(y1-y0),x=cx+off;
+      const r=mk('rect',{x,y:y1-h,width:40,height:h,fill:col,rx:4,ry:4});
+      s.appendChild(r); s.appendChild(mk('rect',{x,y:y1-4,width:40,height:4,fill:col}));
+      hov(r,M[i]+', '+nm+': '+val+' ч = '+(val*5560).toLocaleString('ru-RU')+' ₽');
+      txt(s,x+20,y1-h-8,val+' ч',{fill:col==='#8A8A82'?'#7B7B74':'#1B1B19',size:12,w:700});
+    });
+    txt(s,cx,y1+20,M[i],{size:12.5});
+  });
+})();
+</script>
+</body>
+</html>
